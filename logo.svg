@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 200 210" width="200" height="210">
+  <defs>
+    <!-- Gradient: dark charcoal on left, orange on right -->
+    <linearGradient id="swGrad" gradientUnits="userSpaceOnUse"
+        x1="154.4" y1="145.6"
+        x2="137.6" y2="39.8">
+      <stop offset="0%"   stop-color="#3A3A3A"/>
+      <stop offset="40%"  stop-color="#C05510"/>
+      <stop offset="100%" stop-color="#F08020"/>
+    </linearGradient>
+    <!-- Subtle inner shadow on arc -->
+    <filter id="arcShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="1" dy="1" stdDeviation="2" flood-color="#00000040"/>
+    </filter>
+  </defs>
+
+  <!-- Swoosh arc + arrowhead (single path, filled with gradient) -->
+  <path d="M 162.82 152.71 A 82 82 0 1 1 143.45 30.46 L 157.13 51.98 L 131.80 49.12 A 60 60 0 1 0 145.96 138.57 Z"
+        fill="url(#swGrad)"
+        filter="url(#arcShadow)"/>
+
+  <!-- DOMINION — dark charcoal, bold, centred -->
+  <text x="100" y="93"
+        font-family="Arial Black, Arial, sans-serif"
+        font-size="19" font-weight="900"
+        fill="#2C2C2C"
+        text-anchor="middle"
+        letter-spacing="1">DOMINION</text>
+
+  <!-- HYPERSCALE — orange, bolder, slightly larger -->
+  <text x="100" y="114"
+        font-family="Arial Black, Arial, sans-serif"
+        font-size="16.5" font-weight="900"
+        fill="#E87722"
+        text-anchor="middle"
+        letter-spacing="0.5">HYPERSCALE</text>
+</svg>

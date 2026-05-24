@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dominion Hyperscale — AI Infrastructure for Secondary Markets</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    :root{
+      --bg:#0D0D0D;--bg2:#141414;--bg3:#1A1A1A;--bg4:#222222;
+      --t1:#F5F4EF;--t2:#9B9A95;--t3:#6B6A65;
+      --acc:#E87722;--acc2:#F5A050;
+      --bdr:rgba(255,255,255,0.08);--bdr2:rgba(255,255,255,0.14);
+      --r1:6px;--r2:10px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html{overflow-x:hidden;}
+    body{padding-top:60px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--t1);line-height:1.6;overflow-x:hidden;-webkit-overflow-scrolling:touch;}
+    .inner{max-width:980px;margin:0 auto;padding:0 32px;}
+
+    /* NAV */
+    .sn{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,13,13,0.92);border-bottom:0.5px solid var(--bdr);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);will-change:transform;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);isolation:isolate;-webkit-backface-visibility:hidden;backface-visibility:hidden;}
+    .sn .inner{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+    .logo img{height:36px;width:36px;background:#fff;border-radius:6px;padding:2px;}
+    .logo-text{font-size:13px;font-weight:700;color:var(--t1);letter-spacing:1.5px;text-transform:uppercase;}
+    .logo-text em{font-style:normal;color:var(--acc);letter-spacing:0.5px;}
+    .snl{display:flex;gap:22px;list-style:none;}
+    .snl a{font-size:13px;color:var(--t2);text-decoration:none;transition:color .15s;}
+    .snl a:hover,.snl a.nav-active{color:var(--t1);}
+    .sncta{font-size:13px;padding:8px 18px;background:var(--acc);color:#fff;border:none;border-radius:var(--r1);cursor:pointer;text-decoration:none;font-weight:500;transition:background .15s;}
+    .sncta:hover{background:var(--acc2);}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;border:none;background:transparent;}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--t2);border-radius:2px;transition:all .2s;}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+    /* HERO */
+    .hero{padding:72px 0 60px;}
+    .hero-top{display:grid;grid-template-columns:1fr 300px;gap:48px;align-items:center;}
+    .hero-eyebrow{font-size:11px;font-weight:500;color:var(--acc);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:8px;}
+    .hero-eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--acc);}
+    .hero h1{font-size:50px;font-weight:600;line-height:1.08;letter-spacing:-1.2px;color:var(--t1);margin-bottom:20px;}
+    .hero h1 em{font-style:normal;color:var(--acc);}
+    .hero-sub{font-size:17px;color:var(--t2);line-height:1.7;margin-bottom:32px;}
+    .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;}
+    .bp{padding:13px 26px;background:var(--acc);color:#fff;border-radius:var(--r1);font-size:14px;font-weight:500;text-decoration:none;display:inline-block;transition:background .15s;}
+    .bp:hover{background:var(--acc2);}
+    .bg{padding:13px 26px;background:transparent;color:var(--t1);border:0.5px solid var(--bdr2);border-radius:var(--r1);font-size:14px;text-decoration:none;display:inline-block;transition:border-color .15s;}
+    .bg:hover{border-color:rgba(255,255,255,0.3);}
+    .hero-stat-row{display:flex;gap:32px;flex-wrap:wrap;}
+    .hero-stat{border-left:2px solid var(--acc);padding-left:16px;}
+    .hero-stat-num{font-size:26px;font-weight:600;color:var(--t1);letter-spacing:-0.5px;}
+    .hero-stat-lbl{font-size:12px;color:var(--t3);margin-top:2px;}
+
+    /* SECTIONS */
+    .sec{padding:72px 0;}
+    .sec-dark{padding:72px 0;background:var(--bg2);}
+    .sec-eyebrow{font-size:11px;font-weight:500;color:var(--acc);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+    .sec-eyebrow::before{content:'';display:block;width:20px;height:1px;background:var(--acc);}
+    .sec h2{font-size:34px;font-weight:600;letter-spacing:-0.5px;color:var(--t1);margin-bottom:14px;line-height:1.15;}
+    .sec-sub{font-size:16px;color:var(--t2);line-height:1.7;max-width:600px;margin-bottom:48px;}
+
+    /* THESIS */
+    .thesis-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+    .thesis-body{font-size:16px;color:var(--t2);line-height:1.75;}
+    .thesis-body p+p{margin-top:16px;}
+    .thesis-body strong{color:var(--t1);}
+    .thesis-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+    .thesis-stat{background:var(--bg3);border:0.5px solid var(--bdr);border-radius:var(--r2);padding:22px 20px;}
+    .thesis-stat-num{font-size:30px;font-weight:600;color:var(--acc);letter-spacing:-0.5px;margin-bottom:4px;}
+    .thesis-stat-lbl{font-size:13px;color:var(--t2);line-height:1.5;}
+
+    /* MODEL */
+    .model-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    .model-card{background:var(--bg3);border:0.5px solid var(--bdr);border-radius:var(--r2);padding:28px 24px;position:relative;}
+    .model-num{font-size:11px;font-weight:600;color:var(--acc);letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;}
+    .model-title{font-size:17px;font-weight:600;color:var(--t1);margin-bottom:10px;letter-spacing:-0.2px;}
+    .model-body{font-size:13px;color:var(--t2);line-height:1.65;}
+    .model-connector{position:absolute;top:50%;right:-12px;width:24px;height:24px;background:var(--bg4);border:0.5px solid var(--bdr2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--acc);transform:translateY(-50%);z-index:1;}
+
+    /* COMPETITIVE ADVANTAGES */
+    .adv-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+    .adv{background:var(--bg3);border:0.5px solid var(--bdr);border-radius:var(--r2);padding:32px 28px;}
+    .adv.primary{border-color:rgba(232,119,34,0.35);}
+    .adv-eyebrow{font-size:11px;font-weight:600;color:var(--acc);letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;}
+    .adv-title{font-size:22px;font-weight:600;color:var(--t1);margin-bottom:12px;letter-spacing:-0.3px;line-height:1.2;}
+    .adv-body{font-size:14px;color:var(--t2);line-height:1.7;}
+    .adv-body p+p{margin-top:12px;}
+    .adv-body strong{color:var(--t1);}
+    .adv-link{display:inline-block;margin-top:20px;font-size:13px;color:var(--acc);text-decoration:none;font-weight:500;}
+
+    /* TEAM */
+    .team-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+    .team-card{background:var(--bg3);border:0.5px solid var(--bdr);border-radius:var(--r2);padding:28px 24px;}
+    .team-name{font-size:18px;font-weight:600;color:var(--t1);margin-bottom:4px;}
+    .team-title{font-size:13px;color:var(--acc);font-weight:500;margin-bottom:14px;}
+    .team-bio{font-size:13px;color:var(--t2);line-height:1.65;}
+
+    /* MERLYN CALLOUT */
+    .merlyn-ref{background:rgba(15,110,86,0.06);border:0.5px solid rgba(15,110,86,0.2);border-radius:var(--r2);padding:20px 24px;display:flex;gap:16px;align-items:flex-start;margin-top:48px;}
+    .merlyn-ref-body{font-size:13px;color:var(--t2);line-height:1.65;}
+    .merlyn-ref-body strong{color:var(--t1);}
+    .merlyn-ref-body a{color:#1D9E75;text-decoration:none;}
+    .merlyn-ref-body a:hover{color:#9FE1CB;}
+
+    /* CTA */
+    .cta-band{background:var(--bg3);border-top:0.5px solid var(--bdr);border-bottom:0.5px solid var(--bdr);padding:72px 0;}
+    .cta-band h2{font-size:36px;font-weight:600;letter-spacing:-0.5px;margin-bottom:14px;}
+    .cta-band p{font-size:16px;color:var(--t2);max-width:520px;margin-bottom:32px;line-height:1.7;}
+    .cta-options{display:flex;gap:24px;flex-wrap:wrap;}
+    .cta-option{border:0.5px solid var(--bdr2);border-radius:var(--r2);padding:20px 24px;min-width:200px;}
+    .cta-option h3{font-size:14px;font-weight:600;color:var(--t1);margin-bottom:6px;}
+    .cta-option p{font-size:13px;color:var(--t3);margin-bottom:14px;line-height:1.5;}
+    .cta-link{font-size:13px;color:var(--acc);text-decoration:none;font-weight:500;}
+    .cta-link:hover{color:var(--acc2);}
+
+    /* FOOTER */
+    .sft{border-top:0.5px solid var(--bdr);padding:28px 0;}
+    .sft .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+    .sfl{font-size:13px;color:var(--t3);}
+    .sfls{display:flex;gap:16px;list-style:none;}
+    .sfls a{font-size:12px;color:var(--t3);text-decoration:none;}
+    .sfls a:hover{color:var(--t2);}
+
+    @media(max-width:720px){
+      .hamburger{display:flex;}
+      .snl{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(13,13,13,0.97);border-bottom:0.5px solid var(--bdr);z-index:200;padding:0;}
+      .snl.open{display:block;}
+      .snl li{display:block;height:48px;overflow:hidden;border-top:0.5px solid var(--bdr);}
+      .snl a{display:block;height:48px;line-height:48px;padding:0 24px;font-size:14px;}
+      .sncta{font-size:12px;padding:6px 12px;}
+      .hero h1{font-size:34px;}
+      .hero-top,.thesis-grid,.model-grid,.adv-grid,.team-grid{grid-template-columns:1fr;}
+      .thesis-stats{grid-template-columns:1fr 1fr;}
+      .model-connector{display:none;}
+      .sec h2{font-size:26px;}
+    }
+  </style>
+</head>
+<body>
+
+<nav class="sn">
+  <div class="inner">
+    <a href="index.html" class="logo">
+      <img src="swoosh.svg" alt="Dominion Hyperscale mark" aria-hidden="true">
+      <span class="logo-text">DOMINION <em>HYPERSCALE</em></span>
+    </a>
+    <ul class="snl">
+      <li><a href="index.html#thesis" class="nav-active">Thesis</a></li>
+      <li><a href="markets.html">Markets</a></li>
+      <li><a href="platform.html">Platform</a></li>
+      <li><a href="compute.html">Compute</a></li>
+      <li><a href="campus.html">Civic Campus</a></li>
+      <li><a href="index.html#team">Team</a></li>
+    </ul>
+    <a href="contact.html" class="sncta">Get in touch ↗</a>
+    <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="inner">
+    <div class="hero-top">
+      <div>
+        <p class="hero-eyebrow">Dominion Hyperscale</p>
+        <h1>AI infrastructure.<br>Where others<br><em>aren't looking.</em></h1>
+        <p class="hero-sub">Dominion develops and operates hyperscale AI data centers in secondary markets — where power is cheap, land is available, and the competitive landscape is open.</p>
+        <div class="hero-ctas">
+          <a href="#thesis" class="bp">Our thesis</a>
+          <a href="contact.html" class="bg">Talk to us</a>
+        </div>
+
+      </div>
+      <!-- Portrait power diagram -->
+      <svg viewBox="0 0 280 420" role="img" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:300px;justify-self:center;">
+        <title>Dominion power advantage</title>
+        <desc>Natural gas pipeline feeds on-site generator at $0.02/kWh, power flows up to AI infrastructure</desc>
+        <defs>
+          <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <rect width="280" height="420" fill="#0D0D0D" rx="10"/>
+        <rect x="24" y="370" width="232" height="16" rx="8" fill="#383838" stroke="#555" stroke-width="0.5"/>
+        <rect x="24" y="370" width="232" height="8" rx="8" fill="#454545"/>
+        <text x="140" y="402" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#888">natural gas pipeline</text>
+        <rect x="137" y="296" width="6" height="76" rx="3" fill="#555"/>
+        <rect x="24" y="220" width="232" height="76" rx="8" fill="#1E1E1E" stroke="#E87722" stroke-width="1"/>
+        <rect x="24" y="220" width="232" height="24" rx="8" fill="#252525"/>
+        <rect x="24" y="232" width="232" height="12" fill="#252525"/>
+        <text x="140" y="236" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" font-weight="600" fill="#C8C7C2">On-site generator</text>
+        <text x="140" y="272" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="36" font-weight="700" fill="#F5A050">$0.02</text>
+        <text x="140" y="290" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#9B9A95">per kWh · natural gas</text>
+        <path d="M140 218 L140 152" fill="none" stroke="#E87722" stroke-width="2.5" marker-end="url(#arr)"/>
+        <text x="158" y="190" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#E87722">power</text>
+        <rect x="24" y="36" width="232" height="116" rx="8" fill="#1E1E1E" stroke="#666" stroke-width="0.5"/>
+        <rect x="24" y="36" width="232" height="24" rx="8" fill="#252525"/>
+        <rect x="24" y="48" width="232" height="12" fill="#252525"/>
+        <text x="140" y="52" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" font-weight="600" fill="#F5F4EF">AI infrastructure</text>
+        <rect x="40" y="76" width="30" height="10" rx="2" fill="#E87722"/>
+        <rect x="76" y="76" width="30" height="10" rx="2" fill="#E87722"/>
+        <rect x="112" y="76" width="30" height="10" rx="2" fill="#E87722"/>
+        <rect x="148" y="76" width="30" height="10" rx="2" fill="#E87722"/>
+        <rect x="184" y="76" width="30" height="10" rx="2" fill="#C05510"/>
+        <rect x="220" y="76" width="20" height="10" rx="2" fill="#C05510"/>
+        <rect x="40" y="92" width="30" height="10" rx="2" fill="#C05510"/>
+        <rect x="76" y="92" width="30" height="10" rx="2" fill="#C05510"/>
+        <rect x="112" y="92" width="30" height="10" rx="2" fill="#C05510"/>
+        <rect x="148" y="92" width="30" height="10" rx="2" fill="#444"/>
+        <rect x="184" y="92" width="30" height="10" rx="2" fill="#444"/>
+        <rect x="220" y="92" width="20" height="10" rx="2" fill="#333"/>
+        <rect x="40" y="108" width="30" height="10" rx="2" fill="#333"/>
+        <rect x="76" y="108" width="30" height="10" rx="2" fill="#333"/>
+        <rect x="112" y="108" width="30" height="10" rx="2" fill="#2A2A2A"/>
+        <rect x="148" y="108" width="30" height="10" rx="2" fill="#2A2A2A"/>
+        <rect x="184" y="108" width="30" height="10" rx="2" fill="#2A2A2A"/>
+        <rect x="220" y="108" width="20" height="10" rx="2" fill="#252525"/>
+        <rect x="40" y="128" width="200" height="18" rx="4" fill="#222" stroke="#444" stroke-width="0.5"/>
+        <text x="140" y="140" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#C8C7C2">99.9% uptime · 6–25 MW</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- THESIS -->
+<section class="sec-dark" id="thesis">
+  <div class="inner">
+    <p class="sec-eyebrow">The thesis</p>
+    <div class="thesis-grid">
+      <div>
+        <h2>The best AI infrastructure markets are the ones no one is fighting over.</h2>
+        <div class="thesis-body" style="margin-top:20px;">
+          <p>Northern Virginia, Phoenix, and Dallas are saturated. Power is expensive. Land is expensive. Competition is fierce. Every hyperscaler is building there because everyone else is building there.</p>
+          <p>Secondary markets — mid-size cities and industrial corridors with natural gas infrastructure, available land, and an established industrial workforce — offer the same connectivity at a fraction of the cost. And nobody is building there at scale.</p>
+          <p><strong>Dominion's thesis:</strong> build AI data centers in secondary markets where the power cost advantage is structural, the competitive landscape is open, and demand from regional enterprises, research institutions, and government agencies is real and growing. Operate them. Scale the portfolio.</p>
+        </div>
+        <a href="markets.html" style="display:inline-block;margin-top:24px;font-size:13px;color:var(--acc);text-decoration:none;font-weight:500;">Why secondary markets →</a>
+      </div>
+      <div class="thesis-stats">
+        <div class="thesis-stat">
+          <div class="thesis-stat-num">$0.02</div>
+          <div class="thesis-stat-lbl">per kWh on-site natural gas generation vs. $0.08–0.12 grid average</div>
+        </div>
+        <div class="thesis-stat">
+          <div class="thesis-stat-num">4–6×</div>
+          <div class="thesis-stat-lbl">lower land cost in secondary markets vs. Tier 1 data center corridors</div>
+        </div>
+        <div class="thesis-stat">
+          <div class="thesis-stat-num">Zero</div>
+          <div class="thesis-stat-lbl">hyperscale competitors in our target markets at the scale we're building</div>
+        </div>
+        <div class="thesis-stat">
+          <div class="thesis-stat-num">25 MW</div>
+          <div class="thesis-stat-lbl">first facility capacity — expandable to the site's physical limit</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE MODEL -->
+<section class="sec" id="model">
+  <div class="inner">
+    <p class="sec-eyebrow">The model</p>
+    <h2>Build. Operate. Scale.</h2>
+    <p class="sec-sub">Dominion is an infrastructure developer and operator with a repeatable playbook. We identify the market, build the facility, and operate it — growing the portfolio as each campus reaches utilization.</p>
+    <div class="model-grid">
+      <div class="model-card">
+        <div class="model-num">01 — Identify</div>
+        <div class="model-title">Site selection</div>
+        <div class="model-body">Natural gas pipeline access within 2 miles. Available land at rational cost. A regional market with demonstrable AI compute demand. We screen rigorously before committing capital.</div>
+        <div class="model-connector">→</div>
+      </div>
+      <div class="model-card">
+        <div class="model-num">02 — Build</div>
+        <div class="model-title">Institutional-grade construction</div>
+        <div class="model-body">On-site natural gas generation sized to the full campus load. NVIDIA and AMD GPU infrastructure at scale. 100GbE east-west fabric with InfiniBand at Phase 3. Built to Tier 1 standards — because the clients demand it.</div>
+        <div class="model-connector">→</div>
+      </div>
+      <div class="model-card">
+        <div class="model-num">03 — Operate</div>
+        <div class="model-title">Long-term ownership</div>
+        <div class="model-body">Dominion operates the facilities it builds. One operating team. Multiple facilities. The scaling advantages that come from operating a network — utilization arbitrage, shared tooling, compounding operational expertise — improve with every campus added.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMPETITIVE ADVANTAGES -->
+<section class="sec-dark" id="advantages">
+  <div class="inner">
+    <p class="sec-eyebrow">Competitive advantages</p>
+    <h2>Two structural edges.<br>Both are durable.</h2>
+    <p class="sec-sub">Cheap power gets attention. But the more interesting advantage is what happens to Dominion's business model when AI demand contracts.</p>
+    <div class="adv-grid">
+
+      <div class="adv primary">
+        <div class="adv-eyebrow">Advantage 01 — Power</div>
+        <div class="adv-title">$0.02/kWh.<br>They pay $0.10.</div>
+        <div class="adv-body">
+          <p>On-site natural gas generation eliminates grid dependency for the primary compute load. At full 25 MW utilization, Dominion's power cost advantage over a grid-dependent operator is approximately <strong>$14M per year</strong>.</p>
+          <p>This isn't an arbitrage that closes. Natural gas pipeline access is a physical asset tied to the site. The savings compound with every megawatt of capacity that comes online.</p>
+          <p>It means Dominion can price compute services materially below cloud competitors and still generate strong gross margins — and the economics work at lower utilization levels that would be loss-making for a grid-dependent operator.</p>
+        </div>
+        <a href="platform.html" class="adv-link">See the platform specs →</a>
+      </div>
+
+      <div class="adv">
+        <div class="adv-eyebrow">Advantage 02 — Resilience</div>
+        <div class="adv-title">Built to survive<br>an AI bust.</div>
+        <div class="adv-body">
+          <p>The fiber overbuild of the late 90s is the reference case. Pure-play GPU rental companies — high fixed costs, limited revenue diversification, dependent on sustained AI demand — are the most exposed when enterprise adoption contracts.</p>
+          <p>Dominion's campus generates revenue from four streams: compute services, the fiber hub, the training center, and co-working. The fiber hub is recession-proof. The training center runs on employer contracts, not hype cycles.</p>
+          <p>And at $0.02/kWh, Dominion reaches break-even at a materially lower utilization rate than any grid-dependent competitor. A contraction that pushes a CoreWeave-equivalent into distress leaves Dominion operating at reduced — but positive — margin.</p>
+        </div>
+        <a href="campus.html" class="adv-link">The campus model →</a>
+      </div>
+
+    </div>
+    <div class="merlyn-ref" style="margin-top:24px;">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;margin-top:2px;"><circle cx="10" cy="10" r="9" stroke="#1D9E75" stroke-width="1.5"/><path d="M10 6v4l3 3" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <div class="merlyn-ref-body">
+        <strong>Dominion and <a href="https://walkerwest.github.io/merlyn" target="_blank">Merlyn AI Labs</a> are being built by the same team.</strong> Merlyn is the services layer — managed IT, AI consulting, workforce training, and SaaS for regional employers — running on the infrastructure Dominion builds. The two companies are designed to reinforce each other: Merlyn's revenue is non-cyclical, which means Dominion's Evansville campus has committed base-load demand from day one regardless of where the broader AI market goes. When speculative compute demand collapses elsewhere, the campus stays utilized. That's not a coincidence. It's the design.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="sec" id="team">
+  <div class="inner">
+    <p class="sec-eyebrow">The team</p>
+    <h2>Built by operators.</h2>
+    <p class="sec-sub" style="margin-bottom:36px;">Dominion is founded by people who have built, operated, and transferred regional infrastructure before.</p>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-name">Tom Kolb</div>
+        <div class="team-title">Founder & CEO</div>
+        <div class="team-bio">Tom has spent his career building regional infrastructure companies — most recently Sitco, a regional communications infrastructure operator. He understands secondary markets, infrastructure financing, and the long game of operating assets that compound in value over time. Dominion Hyperscale is the application of that experience to AI infrastructure.</div>
+      </div>
+      <div class="team-card">
+        <div class="team-name">Todd Mosby</div>
+        <div class="team-title">Co-Founder & COO</div>
+        <div class="team-bio">Todd brings operational depth from a career in regional technology infrastructure. He has run multi-site operations, built field engineering teams, and managed the unglamorous but critical work of keeping complex infrastructure running. At Dominion, Todd owns the build and operate functions — the part that determines whether the thesis actually works in practice.</div>
+      </div>
+      <div class="team-card">
+        <div class="team-name">Walker West</div>
+        <div class="team-title">Co-Founder & VP of Decision Intelligence</div>
+        <div class="team-bio">Walker is the Director of Application Development at United Companies and co-founder of Merlyn AI Labs. At Dominion, Walker owns the AI platform layer: the managed compute stack, MLOps environment, and the technical standards that define how workloads run across the campus network.</div>
+      </div>
+      <div class="team-card">
+        <div class="team-name">Dan Kolb</div>
+        <div class="team-title">Co-Founder & CTO</div>
+        <div class="team-bio">Dan brings deep technical leadership to Dominion's infrastructure build. As CTO of Merlyn AI Labs, he owns the engineering architecture across the full Merlyn platform stack. At Dominion, Dan leads the technical design of the campus infrastructure — from power systems and network fabric to the Kubernetes compute layer that serves both internal campus operators and external enterprise clients.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="cta-band" id="contact">
+  <div class="inner">
+    <h2>Let's talk.</h2>
+    <p>We are actively developing our first facility and evaluating additional markets. If you are an infrastructure investor, an economic development authority, a regional enterprise with AI compute needs, or a city that wants to understand what a Dominion campus could mean for your area — we want to hear from you.</p>
+    <div class="cta-options">
+      <div class="cta-option">
+        <h3>Infrastructure investors</h3>
+        <p>Discuss the thesis, the financial model, and the pipeline.</p>
+        <a href="contact.html?interest=invest" class="cta-link">Get in touch →</a>
+      </div>
+      <div class="cta-option">
+        <h3>Enterprise compute</h3>
+        <p>Evaluate managed GPU infrastructure for your ML workloads.</p>
+        <a href="contact.html?interest=compute-inference" class="cta-link">Get in touch →</a>
+      </div>
+      <div class="cta-option">
+        <h3>Cities &amp; partners</h3>
+        <p>Explore what a Dominion campus could mean for your market.</p>
+        <a href="contact.html?interest=campus-city" class="cta-link">Get in touch →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="sft">
+  <div class="inner">
+    <div class="sfl">© 2025 Dominion Hyperscale · Evansville, Indiana</div>
+    <ul class="sfls">
+      <li><a href="#thesis">Thesis</a></li>
+      <li><a href="markets.html">Markets</a></li>
+      <li><a href="platform.html">Platform</a></li>
+      <li><a href="compute.html">Compute</a></li>
+      <li><a href="campus.html">Civic Campus</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  document.querySelector('.hamburger').addEventListener('click', function(){
+    this.classList.toggle('open');
+    document.querySelector('.snl').classList.toggle('open');
+  });
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth',block:'start'}); }
+    });
+  });
+</script>
+</body>
+</html>
