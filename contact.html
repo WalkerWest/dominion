@@ -264,9 +264,8 @@
     document.querySelector('.snl').classList.toggle('open');
   });
   (function(){
-    const interest = new URLSearchParams(window.location.search).get('interest') || 'general';
-    const s = document.getElementById('interest');
-    if(s) s.value = interest;
+    const interest = new URLSearchParams(window.location.search).get('interest');
+    if(interest){ const s = document.getElementById('interest'); if(s) s.value = interest; }
   })();
   function handleSubmit(e){
     e.preventDefault();
