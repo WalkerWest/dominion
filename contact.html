@@ -30,6 +30,7 @@
     .snl a:hover,.snl a.nav-active{color:var(--t1);}
     .sncta{font-size:13px;padding:8px 18px;background:var(--acc);color:#fff;border:none;border-radius:var(--r1);cursor:pointer;text-decoration:none;font-weight:500;transition:background .15s;}
     .sncta:hover{background:var(--acc2);}
+    .nav-short{display:none;}
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;border:none;background:transparent;}
     .hamburger span{display:block;width:22px;height:2px;background:var(--t2);border-radius:2px;transition:all .2s;}
     .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
@@ -115,6 +116,8 @@
       .snl li{display:block;height:48px;overflow:hidden;border-top:0.5px solid var(--bdr);}
       .snl a{display:block;height:48px;line-height:48px;padding:0 24px;font-size:14px;}
       .sncta{font-size:12px;padding:6px 12px;}
+      .nav-full{display:none;}
+      .nav-short{display:inline;}
       .hero h1{font-size:32px;}
       .contact-grid{grid-template-columns:1fr;}
       .sidebar{order:2;}
@@ -138,7 +141,7 @@
       <li><a href="campus.html">Campus Strategy</a></li>
       <li><a href="index.html#team">Team</a></li>
     </ul>
-    <a href="contact.html" class="sncta nav-active">Get in touch ↗</a>
+    <a href="contact.html" class="sncta nav-active"><span class="nav-full">Get in touch ↗</span><span class="nav-short">Contact</span></a>
     <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
