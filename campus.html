@@ -3,115 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dominion Hyperscale — Campus Operating Models</title>
+  <title>Dominion Hyperscale — The Campus Strategy</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <style>
-    :root{
-      --bg:#0D0D0D;--bg2:#141414;--bg3:#1A1A1A;--bg4:#222222;
-      --t1:#F5F4EF;--t2:#9B9A95;--t3:#6B6A65;
-      --acc:#E87722;--acc2:#F5A050;
-      --bdr:rgba(255,255,255,0.08);--bdr2:rgba(255,255,255,0.14);
-      --r1:6px;--r2:10px;
-      --green:#1D9E75;--green-bg:rgba(29,158,117,0.06);--green-bdr:rgba(29,158,117,0.2);
-    }
+    :root{--bg:#0D0D0D;--bg2:#141414;--bg3:#1A1A1A;--bg4:#222222;--t1:#F5F4EF;--t2:#9B9A95;--t3:#6B6A65;--acc:#E87722;--acc2:#F5A050;--green:#1D9E75;--bdr:rgba(255,255,255,0.08);--bdr2:rgba(255,255,255,0.14);--r1:6px;--r2:10px;}
     *{box-sizing:border-box;margin:0;padding:0;}
     html{overflow-x:hidden;}
-    body{padding-top:60px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--t1);line-height:1.6;overflow-x:hidden;-webkit-overflow-scrolling:touch;}
+    body{padding-top:60px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--t1);line-height:1.6;overflow-x:hidden;}
     .inner{max-width:980px;margin:0 auto;padding:0 32px;}
-
-    /* NAV */
     .sn{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,13,13,0.92);border-bottom:0.5px solid var(--bdr);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);will-change:transform;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);isolation:isolate;-webkit-backface-visibility:hidden;backface-visibility:hidden;}
     .sn .inner{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;}
     .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
     .logo img{height:36px;width:36px;background:#fff;border-radius:6px;padding:2px;}
     .logo-text{font-size:13px;font-weight:700;color:var(--t1);letter-spacing:1.5px;text-transform:uppercase;}
     .logo-text em{font-style:normal;color:var(--acc);letter-spacing:0.5px;}
-    .snl{display:flex;gap:24px;list-style:none;}
+    .snl{display:flex;gap:22px;list-style:none;}
     .snl a{font-size:13px;color:var(--t2);text-decoration:none;transition:color .15s;}
     .snl a:hover,.snl a.nav-active{color:var(--t1);}
-    .sncta{font-size:13px;padding:8px 18px;background:var(--acc);color:#fff;border:none;border-radius:var(--r1);cursor:pointer;text-decoration:none;font-weight:500;transition:background .15s;}
-    .sncta:hover{background:var(--acc2);}
+    .sncta{font-size:13px;padding:8px 18px;background:var(--acc);color:#fff;border:none;border-radius:var(--r1);cursor:pointer;text-decoration:none;font-weight:500;}
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;border:none;background:transparent;}
     .hamburger span{display:block;width:22px;height:2px;background:var(--t2);border-radius:2px;transition:all .2s;}
     .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
     .hamburger.open span:nth-child(2){opacity:0;}
     .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-
-    /* HERO */
-    .hero{padding:80px 0 64px;border-bottom:0.5px solid var(--bdr);}
+    .hero{padding:80px 0 60px;border-bottom:0.5px solid var(--bdr);}
     .hero-eyebrow{font-size:11px;font-weight:500;color:var(--acc);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:8px;}
     .hero-eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--acc);}
     .hero h1{font-size:48px;font-weight:600;line-height:1.08;letter-spacing:-1px;color:var(--t1);margin-bottom:20px;}
     .hero h1 em{font-style:normal;color:var(--acc);}
-    .hero-sub{font-size:17px;color:var(--t2);line-height:1.75;max-width:660px;margin-bottom:36px;}
+    .hero-sub{font-size:17px;color:var(--t2);line-height:1.75;max-width:660px;margin-bottom:32px;}
     .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;}
     .bp{padding:13px 26px;background:var(--acc);color:#fff;border-radius:var(--r1);font-size:14px;font-weight:500;text-decoration:none;display:inline-block;transition:background .15s;}
     .bp:hover{background:var(--acc2);}
     .bg{padding:13px 26px;background:transparent;color:var(--t1);border:0.5px solid var(--bdr2);border-radius:var(--r1);font-size:14px;text-decoration:none;display:inline-block;}
-
-    /* SECTIONS */
     .sec{padding:72px 0;}
     .sec-dark{padding:72px 0;background:var(--bg2);}
-    .sec-eyebrow{font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
-    .sec-eyebrow::before{content:'';display:block;width:20px;height:1px;}
-    .sec-eyebrow.acc{color:var(--acc);}
-    .sec-eyebrow.acc::before{background:var(--acc);}
-    .sec-eyebrow.green{color:var(--green);}
-    .sec-eyebrow.green::before{background:var(--green);}
-    .sec h2{font-size:34px;font-weight:600;letter-spacing:-0.5px;color:var(--t1);margin-bottom:16px;line-height:1.15;}
-    .sec-sub{font-size:16px;color:var(--t2);line-height:1.75;max-width:620px;margin-bottom:48px;}
-
-    /* COMPONENTS GRID */
-    .comp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;}
-    .comp{background:var(--bg3);border:0.5px solid var(--bdr);border-radius:var(--r2);padding:24px 22px;}
-    .comp.featured{border-color:rgba(232,119,34,0.35);background:rgba(232,119,34,0.03);}
-    .comp-num{font-size:11px;font-weight:600;color:var(--acc);letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;}
-    .comp-title{font-size:17px;font-weight:600;color:var(--t1);margin-bottom:8px;}
+    .sec-eyebrow{font-size:11px;font-weight:500;color:var(--acc);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+    .sec-eyebrow::before{content:'';display:block;width:20px;height:1px;background:var(--acc);}
+    .sec h2{font-size:34px;font-weight:600;letter-spacing:-0.5px;color:var(--t1);margin-bottom:14px;line-height:1.15;}
+    .sec-sub{font-size:16px;color:var(--t2);line-height:1.7;max-width:600px;margin-bottom:48px;}
+    /* Paths — three equal cards */
+    .path-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    .path{background:var(--bg3);border:0.5px solid var(--bdr);border-radius:var(--r2);padding:28px 24px;display:flex;flex-direction:column;}
+    .path.featured{border-color:rgba(232,119,34,0.35);}
+    .path-num{font-size:11px;font-weight:600;color:var(--acc);letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;}
+    .path-badge{font-size:10px;color:var(--acc);background:rgba(232,119,34,0.1);border:0.5px solid rgba(232,119,34,0.25);border-radius:4px;padding:2px 7px;letter-spacing:0.5px;}
+    .path-title{font-size:20px;font-weight:600;color:var(--t1);margin-bottom:12px;letter-spacing:-0.3px;}
+    .path-body{font-size:13px;color:var(--t2);line-height:1.7;flex:1;}
+    .path-body p+p{margin-top:10px;}
+    .path-body strong{color:var(--t1);}
+    /* Components */
+    .comp-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+    .comp{background:var(--bg3);border:0.5px solid var(--bdr);border-radius:var(--r2);padding:24px 20px;}
+    .comp-num{font-size:11px;font-weight:600;color:var(--acc);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;}
+    .comp-title{font-size:16px;font-weight:600;color:var(--t1);margin-bottom:8px;}
     .comp-body{font-size:13px;color:var(--t2);line-height:1.65;}
-
-    /* TRANSFER STEPS */
+    /* Path C detail */
     .steps{display:flex;flex-direction:column;gap:0;}
-    .step{display:grid;grid-template-columns:48px 1fr;gap:20px;align-items:start;padding:24px 0;border-bottom:0.5px solid var(--bdr);}
+    .step{display:grid;grid-template-columns:40px 1fr;gap:16px;padding:20px 0;border-bottom:0.5px solid var(--bdr);}
     .step:last-child{border-bottom:none;}
-    .step-num{width:40px;height:40px;border-radius:50%;background:rgba(232,119,34,0.1);border:0.5px solid rgba(232,119,34,0.3);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:var(--acc);flex-shrink:0;}
-    .step-title{font-size:15px;font-weight:600;color:var(--t1);margin-bottom:6px;}
-    .step-body{font-size:13px;color:var(--t2);line-height:1.65;}
-    .step-timing{font-size:11px;color:var(--t3);margin-top:6px;}
-
-    /* SCHOOL SPLIT */
-    .track-list{display:flex;flex-direction:column;gap:12px;}
-    .track{background:var(--bg3);border:0.5px solid var(--bdr);border-radius:var(--r1);padding:16px 18px;}
-    .track-grade{font-size:10px;font-weight:600;color:var(--acc);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;}
-    .track-title{font-size:14px;font-weight:600;color:var(--t1);margin-bottom:4px;}
-    .track-body{font-size:12px;color:var(--t2);line-height:1.55;}
-
-    /* FINANCING TABLE */
-    .finance-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
-    .finance-card{background:var(--bg3);border:0.5px solid var(--bdr);border-radius:var(--r1);padding:18px 16px;}
-    .finance-source{font-size:11px;font-weight:600;color:var(--acc);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:8px;}
-    .finance-title{font-size:14px;font-weight:600;color:var(--t1);margin-bottom:4px;}
-    .finance-body{font-size:12px;color:var(--t2);line-height:1.5;}
-
-    /* EVANSVILLE PROOF */
-
+    .step-num{width:28px;height:28px;border-radius:50%;background:rgba(232,119,34,0.1);border:0.5px solid rgba(232,119,34,0.3);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:var(--acc);flex-shrink:0;}
+    .step-title{font-size:14px;font-weight:600;color:var(--t1);margin-bottom:4px;}
+    .step-body{font-size:13px;color:var(--t2);line-height:1.6;}
+    /* Financing */
+    .finance-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+    .finance{background:var(--bg3);border:0.5px solid var(--bdr);border-radius:var(--r2);padding:20px 18px;}
+    .finance-name{font-size:13px;font-weight:600;color:var(--t1);margin-bottom:6px;}
+    .finance-body{font-size:12px;color:var(--t2);line-height:1.6;}
     /* CTA */
-    .cta-band{background:var(--bg3);border-top:0.5px solid var(--bdr);padding:64px 0;}
-    .cta-band h2{font-size:32px;font-weight:600;letter-spacing:-0.4px;margin-bottom:12px;}
-    .cta-band p{font-size:16px;color:var(--t2);max-width:540px;margin-bottom:28px;line-height:1.75;}
+    .cta-band{background:var(--bg3);border-top:0.5px solid var(--bdr);border-bottom:0.5px solid var(--bdr);padding:72px 0;}
     .cta-options{display:flex;gap:24px;flex-wrap:wrap;}
     .cta-option{border:0.5px solid var(--bdr2);border-radius:var(--r2);padding:20px 24px;min-width:200px;}
     .cta-option h3{font-size:14px;font-weight:600;color:var(--t1);margin-bottom:6px;}
     .cta-option p{font-size:13px;color:var(--t3);margin-bottom:14px;line-height:1.5;}
     .cta-link{font-size:13px;color:var(--acc);text-decoration:none;font-weight:500;}
-
-    /* FOOTER */
     .sft{border-top:0.5px solid var(--bdr);padding:28px 0;}
     .sft .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
     .sfl{font-size:13px;color:var(--t3);}
     .sfls{display:flex;gap:16px;list-style:none;}
     .sfls a{font-size:12px;color:var(--t3);text-decoration:none;}
     .sfls a:hover{color:var(--t2);}
-
     @media(max-width:720px){
       .hamburger{display:flex;}
       .snl{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(13,13,13,0.97);border-bottom:0.5px solid var(--bdr);z-index:200;padding:0;}
@@ -120,9 +91,8 @@
       .snl a{display:block;height:48px;line-height:48px;padding:0 24px;font-size:14px;}
       .sncta{font-size:12px;padding:6px 12px;}
       .hero h1{font-size:32px;}
+      .path-grid,.comp-grid,.finance-grid{grid-template-columns:1fr;}
       .sec h2{font-size:26px;}
-      .finance-grid{grid-template-columns:1fr 1fr;}
-      .step{grid-template-columns:40px 1fr;gap:14px;}
     }
   </style>
 </head>
@@ -139,7 +109,7 @@
       <li><a href="markets.html">Markets</a></li>
       <li><a href="platform.html">Platform</a></li>
       <li><a href="compute.html">Compute</a></li>
-      <li><a href="campus.html"class="nav-active">Civic Campus</a></li>
+      <li><a href="campus.html" class="nav-active">Campus Strategy</a></li>
       <li><a href="index.html#team">Team</a></li>
     </ul>
     <a href="contact.html" class="sncta">Get in touch ↗</a>
@@ -147,31 +117,72 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="inner">
-    <p class="hero-eyebrow">Campus operating models</p>
-    <h1>Built to last.<br><em>Three ways to finish.</em></h1>
-    <p class="hero-sub">The Civic AI Campus is Dominion's model for building hyperscale AI data centers in secondary markets and transferring ownership to the communities that need them most — through a structured installment sale to a locally governed Public Benefit Corporation. A hyperscale AI data center, a workforce training center, a regional fiber hub, and co-working space — under one roof, owned by the community.</p>
+    <p class="hero-eyebrow">The campus strategy</p>
+    <h1>One facility.<br><em>Three ways to finish.</em></h1>
+    <p class="hero-sub">Every Dominion campus is an integrated AI infrastructure facility — data center, training center, fiber hub, and co-working space — built to institutional standards. What happens at maturity is not predetermined. Which of three paths makes sense depends on the market, the investors, and the community.</p>
     <div class="hero-ctas">
       <a href="#paths" class="bp">Three paths to maturity</a>
+      <a href="#campus" class="bg">What gets built</a>
     </div>
   </div>
 </section>
 
-<!-- CAMPUS COMPONENTS -->
-<section class="sec" id="campus">
+<!-- THREE PATHS — equal weight, leads the page -->
+<section class="sec" id="paths">
   <div class="inner">
-    <p class="sec-eyebrow acc">What's on the campus</p>
-    <h2>Four components.<br>One integrated facility.</h2>
-    <p class="sec-sub">The campus components are not co-located by coincidence. They share power infrastructure, networking, security, and staffing in ways that reduce cost and increase resilience for each one.</p>
-    <div class="comp-grid">
-      <div class="comp featured">
-        <div class="comp-num">01</div>
-        <div class="comp-title">The data center</div>
-        <div class="comp-body">A 6–25 MW AI compute facility built to Dominion's institutional standard — NVIDIA and AMD GPU infrastructure, on-site natural gas generation at $0.02/kWh, tiered storage, and a multi-tenant control plane. Not a cut-down community version. The same hardware that serves regional enterprises.</div>
+    <p class="sec-eyebrow">Long-term operating models</p>
+    <h2>Three paths.<br>Each one is a real outcome.</h2>
+    <p class="sec-sub">These aren't theoretical options. Each path has a clear trigger, a clear financial profile, and a clear set of stakeholders who benefit. Which one Dominion pursues at any given campus depends on what the market and the investors want at maturity.</p>
+    <div class="path-grid">
+
+      <div class="path">
+        <div class="path-num">Path A</div>
+        <div class="path-title">Hold and operate</div>
+        <div class="path-body">
+          <p>Dominion retains ownership and continues operating the campus indefinitely. Each new campus improves the economics of the existing network — utilization arbitrage, shared tooling, compounding operational expertise.</p>
+          <p>At full buildout across three sites — Indiana, Mississippi, Nevada — the portfolio generates approximately <strong>$1.1B in annual EBITDA</strong> at 144 MW combined. At that scale the platform becomes institutional-grade infrastructure: large enough for IPO consideration, attractive to sovereign wealth funds and pension infrastructure allocations.</p>
+          <p>This is Tom's preferred outcome. Build the network. Operate it. Let it compound.</p>
+        </div>
       </div>
 
+      <div class="path">
+        <div class="path-num">Path B</div>
+        <div class="path-title">Strategic sale</div>
+        <div class="path-body">
+          <p>Once a campus has an operating track record — demonstrated utilization, anchor tenants, stable cash flow — it becomes an attractive acquisition target for a Tier 1 hyperscaler (Google, Microsoft, Amazon) looking to expand secondary market presence without the development risk.</p>
+          <p>The acquirer gets an operating facility with proven demand, established client relationships, and a power cost structure they cannot replicate on a greenfield site. Dominion gets an exit at a valuation reflecting operating infrastructure, not development-stage risk.</p>
+          <p>A single 48 MW campus at maturity carries an estimated <strong>valuation of ~$4.7B</strong> at a 12× EBITDA multiple.</p>
+        </div>
+      </div>
+
+      <div class="path featured">
+        <div class="path-num">Path C <span class="path-badge">Most distinctive</span></div>
+        <div class="path-title">Community transfer</div>
+        <div class="path-body">
+          <p>In markets where a community institution — a B Corp, economic development authority, or community foundation — has the will and the financing to acquire the campus, Dominion facilitates a structured installment sale. Title transfers at closing. The community pays from operating revenue over 15–25 years.</p>
+          <p>USDA Community Facilities program financing covers 40–60% of the acquisition price in qualifying markets, making the purchase viable without institutional capital. The community B Corp that acquires the campus is governed locally — not by Dominion, not by outside investors.</p>
+          <p>This path produces infrastructure that is permanently anchored in the community it serves. <strong>No one else is building this path at scale.</strong></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHAT GETS BUILT -->
+<section class="sec-dark" id="campus">
+  <div class="inner">
+    <p class="sec-eyebrow">What gets built</p>
+    <h2>Four components.<br>One integrated facility.</h2>
+    <p class="sec-sub">The same facility supports all three paths. The campus components are not co-located by coincidence — they share power infrastructure, networking, security, and staffing in ways that reduce cost and increase resilience for each one.</p>
+    <div class="comp-grid">
+      <div class="comp">
+        <div class="comp-num">01</div>
+        <div class="comp-title">The data center</div>
+        <div class="comp-body">A 6–25 MW AI compute facility built to Dominion's standard: NVIDIA and AMD GPU infrastructure, on-site natural gas generation at $0.02/kWh, three-tier storage, and a managed Kubernetes control plane. Built to the same technical standard as the Frontier AI Campus — not a cut-down version.</div>
+      </div>
       <div class="comp">
         <div class="comp-num">02</div>
         <div class="comp-title">The training center</div>
@@ -179,67 +190,30 @@
       </div>
       <div class="comp">
         <div class="comp-num">03</div>
-        <div class="comp-title">The co-working space</div>
-        <div class="comp-body">3,000–5,000 sq ft for local startups, remote workers, and early-stage companies who benefit from proximity to the compute infrastructure. Modest recurring revenue and meaningful foot traffic during off-peak hours.</div>
+        <div class="comp-title">The fiber hub</div>
+        <div class="comp-body">A regional fiber interconnection point serving local businesses, anchor institutions, and the campus itself. Qualifies for USDA ReConnect and NTIA BEAD program funding. Fiber revenue is recession-proof — anchored by utility contracts and government broadband programs.</div>
       </div>
       <div class="comp">
         <div class="comp-num">04</div>
-        <div class="comp-title">The fiber hub</div>
-        <div class="comp-body">The campus serves as a regional fiber aggregation point — connecting to major backbone providers and extending last-mile fiber to underserved areas in the county. Predictable recurring revenue and a piece of public communications infrastructure that strengthens the case for federal financing.</div>
+        <div class="comp-title">Co-working space</div>
+        <div class="comp-body">Flexible workspace for the campus operating team, consulting partners, and local businesses that benefit from physical proximity to AI infrastructure. Generates supplemental revenue and keeps the campus activated during off-peak compute hours.</div>
       </div>
     </div>
   </div>
 </section>
 
-
-
-<!-- THE TRANSFER -->
+<!-- PATH C DETAIL -->
 <section class="sec" id="transfer">
   <div class="inner">
-    <p class="sec-eyebrow acc">Path C — Community transfer</p>
+    <p class="sec-eyebrow">Path C — Community transfer</p>
     <h2>How the installment<br>sale works.</h2>
-    <p class="sec-sub">In markets where community transfer is the right outcome, Dominion facilitates a structured installment sale to a locally governed Public Benefit Corporation. Title transfers at closing. The community pays from campus operating revenue over 15–25 years.</p>
+    <p class="sec-sub">For markets where community ownership is the right outcome, Dominion operates the campus for 24–36 months, builds the operating track record, then facilitates the sale to a locally governed B Corp. Here's the sequence.</p>
     <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div>
-          <div class="step-title">Site identification and community engagement</div>
-          <div class="step-body">Dominion screens markets for natural gas access, land availability, employer demand, and civic institutional will. A community sponsor — chamber, economic development authority, or community foundation — co-sponsors the B Corp formation.</div>
-          <div class="step-timing">Months 1–3</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div>
-          <div class="step-title">B Corp formation and community share offering</div>
-          <div class="step-body">The community Public Benefit Corporation is formed with steward-ownership provisions. A Regulation CF offering opens community shares at $500–$1,000 minimums — converting subscribers into institutional stakeholders, not just customers.</div>
-          <div class="step-timing">Months 2–6</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div>
-          <div class="step-title">Campus build and operation</div>
-          <div class="step-body">Dominion constructs and operates the campus under a management agreement with the B Corp. Revenue builds from managed IT services, Academy training, compute services, and fiber connectivity. Operating history is established.</div>
-          <div class="step-timing">Months 9–36</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <div>
-          <div class="step-title">USDA Community Facilities financing</div>
-          <div class="step-body">The campus qualifies for USDA Community Facilities program loans covering 40–60% of the purchase price. The fiber hub and training center anchor the application. The 12–18 month approval cycle is filed in Month 4 of Year 1 so it closes on schedule.</div>
-          <div class="step-timing">Pre-application Month 4 · approval Year 2–3</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">5</div>
-        <div>
-          <div class="step-title">Installment sale closes</div>
-          <div class="step-body">The B Corp purchases the campus from Dominion. Title transfers at closing. USDA financing covers the majority. Remaining balance is seller-financed by Dominion at 3–5% over 15–20 years — fully amortizing, no balloon. The community owns the infrastructure outright at maturity.</div>
-          <div class="step-timing">Year 3–4</div>
-        </div>
-      </div>
+      <div class="step"><div class="step-num">1</div><div><div class="step-title">Market qualification</div><div class="step-body">Dominion screens for natural gas access, available land, employer demand, and civic institutional will. A community sponsor — chamber, economic development authority, or community foundation — co-sponsors the B Corp formation.</div></div></div>
+      <div class="step"><div class="step-num">2</div><div><div class="step-title">Campus build and operation</div><div class="step-body">Dominion develops and operates the campus using Dominion's own capital. The operating period — typically 24–36 months — establishes the track record that makes the USDA financing application credible.</div></div></div>
+      <div class="step"><div class="step-num">3</div><div><div class="step-title">USDA pre-application</div><div class="step-body">The Community Facilities pre-application is filed in Month 4 of Year 1 — 12–18 months before the transfer — so the financing closes on schedule. Covers 40–60% of the acquisition price.</div></div></div>
+      <div class="step"><div class="step-num">4</div><div><div class="step-title">Community share offering</div><div class="step-body">Community members subscribe for $500–$1,000 as civic memberships — not financial investments. Converts the community into institutional stakeholders before the campus opens.</div></div></div>
+      <div class="step"><div class="step-num">5</div><div><div class="step-title">Installment sale closing</div><div class="step-body">Title transfers to the B Corp at closing. The community pays from operating revenue over 15–25 years. Dominion is out of the ownership structure — the campus is governed locally from that point forward.</div></div></div>
     </div>
   </div>
 </section>
@@ -247,45 +221,19 @@
 <!-- FINANCING -->
 <section class="sec-dark" id="financing">
   <div class="inner">
-    <p class="sec-eyebrow acc">Federal and state financing</p>
-    <h2>Financing structures<br>commercial operators can't use.</h2>
-    <p class="sec-sub">The community ownership model unlocks capital instruments that are unavailable to commercial data center developers. The integrated campus structure — fiber hub + training center + compute — makes every one of these programs applicable.</p>
+    <p class="sec-eyebrow">Path C — Federal financing programs</p>
+    <h2>Capital instruments unavailable<br>to commercial operators.</h2>
+    <p class="sec-sub">The community ownership structure unlocks federal financing programs that a purely commercial data center developer cannot access. The integrated campus — fiber hub, training center, and compute — makes every one of these programs applicable.</p>
     <div class="finance-grid">
-      <div class="finance-card">
-        <div class="finance-source">USDA</div>
-        <div class="finance-title">Community Facilities</div>
-        <div class="finance-body">Direct loans and grants for essential community facilities. The fiber hub and training center anchor the application. Covers 40–60% of campus acquisition price.</div>
-      </div>
-      <div class="finance-card">
-        <div class="finance-source">NTIA</div>
-        <div class="finance-title">BEAD Broadband</div>
-        <div class="finance-body">Infrastructure funding covering the fiber hub buildout and last-mile extension to underserved areas in the county.</div>
-      </div>
-      <div class="finance-card">
-        <div class="finance-source">EDA</div>
-        <div class="finance-title">Economic Adjustment</div>
-        <div class="finance-body">Construction and equipment grants for campuses in communities with documented economic decline. Applies to most secondary markets in the Midwest.</div>
-      </div>
-      <div class="finance-card">
-        <div class="finance-source">NMTC</div>
-        <div class="finance-title">New Markets Tax Credits</div>
-        <div class="finance-body">For campuses in qualifying low-income census tracts, provides an effective subsidy of 15–20% on qualified project costs.</div>
-      </div>
-      <div class="finance-card">
-        <div class="finance-source">CDFI</div>
-        <div class="finance-title">Impact Lending</div>
-        <div class="finance-body">Community Development Financial Institutions provide below-market capital for community development purposes. Covers an additional 15–25% of the acquisition price.</div>
-      </div>
-      <div class="finance-card">
-        <div class="finance-source">Reg CF</div>
-        <div class="finance-title">Community Shares</div>
-        <div class="finance-body">Community members subscribe for $500–$1,000. Not a financial investment — a civic membership. Converts the community into institutional stakeholders before the campus opens.</div>
-      </div>
+      <div class="finance"><div class="finance-name">USDA Community Facilities</div><div class="finance-body">Direct loans and grants for essential community facilities. The fiber hub and training center anchor the application. Covers 40–60% of campus acquisition price.</div></div>
+      <div class="finance"><div class="finance-name">USDA ReConnect</div><div class="finance-body">Grants and loans for broadband infrastructure in rural and underserved areas. The campus fiber hub is a direct fit. Up to $25M per project.</div></div>
+      <div class="finance"><div class="finance-name">NTIA BEAD Program</div><div class="finance-body">$42.5B federal broadband program. State allocations available for qualifying infrastructure projects. The fiber hub positions the campus as eligible infrastructure.</div></div>
+      <div class="finance"><div class="finance-name">New Markets Tax Credits</div><div class="finance-body">Federal tax credit program for investments in low-income communities. Reduces effective cost of capital for the B Corp acquisition by 15–25%.</div></div>
+      <div class="finance"><div class="finance-name">CDFI Financing</div><div class="finance-body">Community Development Financial Institutions provide mission-aligned debt for community-owned infrastructure. Competitive rates, patient capital, aligned incentives.</div></div>
+      <div class="finance"><div class="finance-name">EDA Grants</div><div class="finance-body">Economic Development Administration grants targeting workforce displacement and industrial transition. Applicable in secondary markets with documented manufacturing decline.</div></div>
     </div>
   </div>
 </section>
-
-
 
 <!-- CTA -->
 <section class="cta-band" id="contact">
@@ -300,7 +248,7 @@
       </div>
       <div class="cta-option">
         <h3>Infrastructure investors</h3>
-        <p>Discuss the campus model, the financing structure, and the pipeline.</p>
+        <p>Discuss the campus strategy, the financing structure, and the pipeline.</p>
         <a href="contact.html?interest=invest" class="cta-link">Get in touch →</a>
       </div>
       <div class="cta-option">
@@ -317,10 +265,10 @@
     <div class="sfl">© 2025 Dominion Hyperscale · Evansville, Indiana</div>
     <ul class="sfls">
       <li><a href="index.html">Home</a></li>
+      <li><a href="markets.html">Markets</a></li>
+      <li><a href="platform.html">Platform</a></li>
       <li><a href="compute.html">Compute</a></li>
-      <li><a href="campus.html">Civic Campus</a></li>
-      <li><a href="index.html#team">Team</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
 </footer>
@@ -329,12 +277,6 @@
   document.querySelector('.hamburger').addEventListener('click', function(){
     this.classList.toggle('open');
     document.querySelector('.snl').classList.toggle('open');
-  });
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const target = document.querySelector(a.getAttribute('href'));
-      if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth',block:'start'}); }
-    });
   });
 </script>
 </body>
