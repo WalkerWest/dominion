@@ -435,6 +435,46 @@
       if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth',block:'start'}); }
     });
   });
+
+  // Dynamic active state for anchor links — handles click, scroll, and URL hash
+  (function(){
+    const navLinks = document.querySelectorAll('.snl a');
+    if(!navLinks.length) return;
+    const sectionMap = {};
+    navLinks.forEach(link => {
+      const m = link.getAttribute('href').match(/#([^#]+)$/);
+      if(m){
+        const section = document.getElementById(m[1]);
+        if(section) sectionMap[m[1]] = link;
+      }
+    });
+    function setActive(link){
+      navLinks.forEach(a => a.classList.remove('nav-active'));
+      if(link) link.classList.add('nav-active');
+    }
+    // On click of any anchor nav link, update active immediately
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(){
+        if(this.getAttribute('href').match(/#[^#]+$/)) setActive(this);
+      });
+    });
+    // On scroll, update active based on which section is in viewport center
+    if(Object.keys(sectionMap).length && 'IntersectionObserver' in window){
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting && sectionMap[entry.target.id]){
+            setActive(sectionMap[entry.target.id]);
+          }
+        });
+      }, {rootMargin: '-40% 0px -40% 0px', threshold: 0});
+      Object.keys(sectionMap).forEach(id => observer.observe(document.getElementById(id)));
+    }
+    // On page load, honor URL hash
+    if(window.location.hash){
+      const link = Array.from(navLinks).find(a => a.getAttribute('href').endsWith(window.location.hash));
+      if(link) setActive(link);
+    }
+  })();
 </script>
 </body>
 </html>
