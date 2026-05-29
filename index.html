@@ -27,7 +27,8 @@
     .logo-text em{font-style:normal;color:var(--acc);letter-spacing:0.5px;}
     .snl{display:flex;gap:22px;list-style:none;}
     .snl a{font-size:13px;color:var(--t2);text-decoration:none;transition:color .15s;}
-    .snl a:hover,.snl a.nav-active{color:var(--t1);}
+    .snl a:hover{color:var(--t1);}
+    .snl a.nav-active{color:var(--t1);font-weight:500;border-bottom:2px solid var(--acc);padding-bottom:1px;}
     .sncta{font-size:13px;padding:8px 18px;background:var(--acc);color:#fff;border:none;border-radius:var(--r1);cursor:pointer;text-decoration:none;font-weight:500;transition:background .15s;}
     .sncta:hover{background:var(--acc2);}
     .nav-short{display:none;}
@@ -121,8 +122,8 @@
     .sft{border-top:0.5px solid var(--bdr);padding:28px 0;}
     .sft .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
     .sfl{font-size:13px;color:var(--t3);}
-    .sfls{display:flex;gap:16px;list-style:none;}
-    .sfls a{font-size:12px;color:var(--t3);text-decoration:none;}
+    .sfls{display:flex;flex-wrap:wrap;gap:8px 16px;list-style:none;}
+    .sfls a{font-size:12px;color:var(--t3);text-decoration:none;white-space:nowrap;}
     .sfls a:hover{color:var(--t2);}
 
     @media(max-width:720px){
@@ -131,7 +132,8 @@
       .snl.open{display:block;}
       .snl li{display:block;height:48px;overflow:hidden;border-top:0.5px solid var(--bdr);}
       .snl a{display:block;height:48px;line-height:48px;padding:0 24px;font-size:14px;}
-      .sncta{font-size:12px;padding:6px 12px;}
+      .sncta{font-size:12px;padding:6px 12px;margin-left:auto;margin-right:12px;}
+      .sn .inner{justify-content:flex-start;}
       .nav-full{display:none;}
       .nav-short{display:inline;}
       .hero h1{font-size:34px;}
@@ -224,7 +226,7 @@
         <rect x="184" y="108" width="30" height="10" rx="2" fill="#2A2A2A"/>
         <rect x="220" y="108" width="20" height="10" rx="2" fill="#252525"/>
         <rect x="40" y="128" width="200" height="18" rx="4" fill="#222" stroke="#444" stroke-width="0.5"/>
-        <text x="140" y="140" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#C8C7C2">99.9% uptime · 6–48 MW</text>
+        <text x="140" y="140" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#C8C7C2">99.999% uptime · 6→25 MW phased</text>
       </svg>
     </div>
   </div>
@@ -258,8 +260,8 @@
           <div class="thesis-stat-lbl">hyperscale competitors in our target markets at the scale we're building</div>
         </div>
         <div class="thesis-stat">
-          <div class="thesis-stat-num">48 MW</div>
-          <div class="thesis-stat-lbl">first facility capacity — expandable to the site's physical limit</div>
+          <div class="thesis-stat-num">25 MW</div>
+          <div class="thesis-stat-lbl">first facility capacity — phased build (6 MW → 12 MW → 25 MW), triggered off contracted capacity</div>
         </div>
       </div>
     </div>
@@ -282,7 +284,7 @@
       <div class="model-card">
         <div class="model-num">02 — Build</div>
         <div class="model-title">Institutional-grade construction</div>
-        <div class="model-body">On-site natural gas generation sized to the full campus load. NVIDIA and AMD GPU infrastructure at scale. 100GbE east-west fabric with InfiniBand at Phase 3. Built to Tier 1 standards — because the clients demand it.</div>
+        <div class="model-body">On-site natural gas generation sized to the full campus load. NVIDIA and AMD GPU infrastructure at scale. 100GbE east-west fabric with InfiniBand at Phase 2. Built to Tier 1 standards — because the clients demand it.</div>
         <div class="model-connector">→</div>
       </div>
       <div class="model-card">
@@ -307,7 +309,7 @@
         <div class="adv-eyebrow">Advantage 01 — Power</div>
         <div class="adv-title">$0.02/kWh.<br>They pay $0.10.</div>
         <div class="adv-body">
-          <p>On-site natural gas generation eliminates grid dependency for the primary compute load. At full 48 MW utilization, Dominion's power cost advantage over a grid-dependent operator is approximately <strong>$14M per year</strong>.</p>
+          <p>On-site natural gas generation eliminates grid dependency for the primary compute load. At full 25 MW utilization, Dominion's power cost advantage over a grid-dependent operator is approximately <strong>$7M per year</strong>.</p>
           <p>This isn't an arbitrage that closes. Natural gas pipeline access is a physical asset tied to the site. The savings compound with every megawatt of capacity that comes online.</p>
           <p>It means Dominion can price compute services materially below cloud competitors and still generate strong gross margins — and the economics work at lower utilization levels that would be loss-making for a grid-dependent operator.</p>
         </div>
@@ -412,12 +414,11 @@
   <div class="inner">
     <div class="sfl">© 2025 Dominion Hyperscale · Evansville, Indiana</div>
     <ul class="sfls">
-      <li><a href="#thesis">Thesis</a></li>
       <li><a href="markets.html">Markets</a></li>
       <li><a href="platform.html">Platform</a></li>
       <li><a href="compute.html">Compute</a></li>
-      <li><a href="campus.html">Campus Strategy</a></li>
-      <li><a href="#team">Team</a></li>
+      <li><a href="campus.html">Campus</a></li>
+      <li><a href="partnership.html">Partnership</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>

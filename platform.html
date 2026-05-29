@@ -19,7 +19,8 @@
     .logo-text em{font-style:normal;color:var(--acc);letter-spacing:0.5px;}
     .snl{display:flex;gap:22px;list-style:none;}
     .snl a{font-size:13px;color:var(--t2);text-decoration:none;transition:color .15s;}
-    .snl a:hover,.snl a.nav-active{color:var(--t1);}
+    .snl a:hover{color:var(--t1);}
+    .snl a.nav-active{color:var(--t1);font-weight:500;border-bottom:2px solid var(--acc);padding-bottom:1px;}
     .sncta{font-size:13px;padding:8px 18px;background:var(--acc);color:#fff;border:none;border-radius:var(--r1);cursor:pointer;text-decoration:none;font-weight:500;}
     .nav-short{display:none;}
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;border:none;background:transparent;}
@@ -58,8 +59,8 @@
     .sft{border-top:0.5px solid var(--bdr);padding:28px 0;}
     .sft .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
     .sfl{font-size:13px;color:var(--t3);}
-    .sfls{display:flex;gap:16px;list-style:none;}
-    .sfls a{font-size:12px;color:var(--t3);text-decoration:none;}
+    .sfls{display:flex;flex-wrap:wrap;gap:8px 16px;list-style:none;}
+    .sfls a{font-size:12px;color:var(--t3);text-decoration:none;white-space:nowrap;}
     .sfls a:hover{color:var(--t2);}
     @media(max-width:720px){
       .hamburger{display:flex;}
@@ -67,7 +68,8 @@
       .snl.open{display:block;}
       .snl li{display:block;height:48px;overflow:hidden;border-top:0.5px solid var(--bdr);}
       .snl a{display:block;height:48px;line-height:48px;padding:0 24px;font-size:14px;}
-      .sncta{font-size:12px;padding:6px 12px;}
+      .sncta{font-size:12px;padding:6px 12px;margin-left:auto;margin-right:12px;}
+      .sn .inner{justify-content:flex-start;}
       .nav-full{display:none;}
       .nav-short{display:inline;}
       .hero h1{font-size:32px;}
@@ -110,19 +112,19 @@
   <div class="inner">
     <p class="sec-eyebrow">Hardware</p>
     <h2>NVIDIA + AMD.<br>Both in the same cluster.</h2>
-    <p class="sec-sub">NVIDIA Blackwell for large-scale training and enterprise inference. AMD MI300X for cost-optimized workloads and ROCm-native models. One cluster, two hardware tiers, scheduled by workload type.</p>
+    <p class="sec-sub">NVIDIA Blackwell for large-scale training and enterprise inference. AMD MI355X for cost-optimized workloads and ROCm-native models. One cluster, two hardware tiers, scheduled by workload type.</p>
     <div class="hw-grid">
       <div class="hw-card">
         <h3>NVIDIA — Large-scale training + inference</h3>
-        <div class="hw-row"><span class="hw-label">GPU hardware</span><span class="hw-val">Blackwell B200 / H100</span></div>
+        <div class="hw-row"><span class="hw-label">GPU hardware</span><span class="hw-val">Blackwell B200 / H200</span></div>
         <div class="hw-row"><span class="hw-label">Intra-rack interconnect</span><span class="hw-val">NVLink</span></div>
-        <div class="hw-row"><span class="hw-label">Network fabric (Phase 3)</span><span class="hw-val">InfiniBand</span></div>
+        <div class="hw-row"><span class="hw-label">Network fabric (Phase 2)</span><span class="hw-val">InfiniBand</span></div>
         <div class="hw-row"><span class="hw-label">Scheduling</span><span class="hw-val">NVIDIA GPU Operator + Volcano</span></div>
         <div class="hw-row"><span class="hw-label">MIG partitioning</span><span class="hw-val">Available — smaller workloads</span></div>
       </div>
       <div class="hw-card">
-        <h3>AMD MI300X — Cost-optimized inference</h3>
-        <div class="hw-row"><span class="hw-label">GPU hardware</span><span class="hw-val">AMD MI300X</span></div>
+        <h3>AMD MI355X — Cost-optimized inference</h3>
+        <div class="hw-row"><span class="hw-label">GPU hardware</span><span class="hw-val">AMD MI355X</span></div>
         <div class="hw-row"><span class="hw-label">Software stack</span><span class="hw-val">NixOS + ROCm</span></div>
         <div class="hw-row"><span class="hw-label">Network fabric</span><span class="hw-val">100GbE east-west</span></div>
         <div class="hw-row"><span class="hw-label">Scheduling</span><span class="hw-val">AMD ROCm device plugin</span></div>
@@ -141,7 +143,7 @@
         <div class="hw-row"><span class="hw-label">Dominion cost</span><span class="hw-val acc">$0.02 / kWh</span></div>
         <div class="hw-row"><span class="hw-label">Cloud equivalent</span><span class="hw-val">$0.08–0.12 / kWh</span></div>
         <div class="hw-row"><span class="hw-label">Phase 1 capacity</span><span class="hw-val">6 MW</span></div>
-        <div class="hw-row"><span class="hw-label">Full build capacity</span><span class="hw-val">48 MW</span></div>
+        <div class="hw-row"><span class="hw-label">Full build capacity</span><span class="hw-val">25 MW</span></div>
       </div>
     </div>
   </div>
@@ -160,7 +162,7 @@
         <div class="hw-row"><span class="hw-label">Network</span><span class="hw-val">100GbE east-west · InfiniBand at scale</span></div>
         <div class="hw-row"><span class="hw-label">Storage</span><span class="hw-val">Three-tier: NVMe · SSD · Object</span></div>
         <div class="hw-row"><span class="hw-label">Control plane</span><span class="hw-val">Managed Kubernetes · multi-tenant</span></div>
-        <div class="hw-row"><span class="hw-label">Uptime commitment</span><span class="hw-val">99.9% SLA</span></div>
+        <div class="hw-row"><span class="hw-label">Uptime commitment</span><span class="hw-val">99.999% SLA</span></div>
       </div>
       <div class="hw-card">
         <h3>What scales with the network</h3>
@@ -189,18 +191,18 @@
         <li><div class="pli-dot"></div><div><div class="pli-title">HIPAA-compliant namespace</div><div class="pli-body">Enhanced audit logging, dedicated network segment, and BAA available for healthcare clients. Available at Inference Cloud Growth tier and above.</div></div></li>
       </ul>
       <div style="background:var(--bg3);border:0.5px solid var(--bdr);border-radius:var(--r2);padding:28px 24px;">
-        <div style="font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:20px;">Phase 3 campus — full spec</div>
+        <div style="font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:20px;">Phase 2 campus — full spec</div>
         <div style="display:flex;flex-direction:column;gap:12px;">
           <div style="display:flex;justify-content:space-between;padding-bottom:10px;border-bottom:0.5px solid var(--bdr);"><span style="font-size:13px;color:var(--t2);">NVIDIA Blackwell NVL72</span><span style="font-size:13px;font-weight:600;color:var(--t1);">72 GPUs / rack</span></div>
-          <div style="display:flex;justify-content:space-between;padding-bottom:10px;border-bottom:0.5px solid var(--bdr);"><span style="font-size:13px;color:var(--t2);">AMD MI300X nodes</span><span style="font-size:13px;font-weight:600;color:var(--t1);">8× per cluster</span></div>
+          <div style="display:flex;justify-content:space-between;padding-bottom:10px;border-bottom:0.5px solid var(--bdr);"><span style="font-size:13px;color:var(--t2);">AMD MI355X nodes</span><span style="font-size:13px;font-weight:600;color:var(--t1);">8× per cluster</span></div>
           <div style="display:flex;justify-content:space-between;padding-bottom:10px;border-bottom:0.5px solid var(--bdr);"><span style="font-size:13px;color:var(--t2);">Network fabric</span><span style="font-size:13px;font-weight:600;color:var(--t1);">100GbE + InfiniBand</span></div>
           <div style="display:flex;justify-content:space-between;padding-bottom:10px;border-bottom:0.5px solid var(--bdr);"><span style="font-size:13px;color:var(--t2);">Usable NVMe storage</span><span style="font-size:13px;font-weight:600;color:var(--t1);">100TB+</span></div>
-          <div style="display:flex;justify-content:space-between;padding-bottom:10px;border-bottom:0.5px solid var(--bdr);"><span style="font-size:13px;color:var(--t2);">Power capacity</span><span style="font-size:13px;font-weight:600;color:var(--t1);">48 MW</span></div>
+          <div style="display:flex;justify-content:space-between;padding-bottom:10px;border-bottom:0.5px solid var(--bdr);"><span style="font-size:13px;color:var(--t2);">Power capacity</span><span style="font-size:13px;font-weight:600;color:var(--t1);">25 MW</span></div>
           <div style="display:flex;justify-content:space-between;padding-bottom:10px;border-bottom:0.5px solid var(--bdr);"><span style="font-size:13px;color:var(--t2);">Power cost</span><span style="font-size:13px;font-weight:600;color:var(--acc);">$0.02 / kWh</span></div>
-          <div style="display:flex;justify-content:space-between;"><span style="font-size:13px;color:var(--t2);">Uptime SLA</span><span style="font-size:13px;font-weight:600;color:var(--t1);">99.9%</span></div>
+          <div style="display:flex;justify-content:space-between;"><span style="font-size:13px;color:var(--t2);">Uptime SLA</span><span style="font-size:13px;font-weight:600;color:var(--t1);">99.999%</span></div>
         </div>
         <div style="margin-top:20px;padding:12px 14px;background:rgba(232,119,34,0.06);border:0.5px solid rgba(232,119,34,0.15);border-radius:var(--r1);">
-          <div style="font-size:12px;color:var(--t2);line-height:1.55;">At full 48 MW utilization, Dominion's power cost advantage vs. grid-dependent operators is approximately <strong style="color:var(--t1);">$14M/year</strong> in operating cost savings.</div>
+          <div style="font-size:12px;color:var(--t2);line-height:1.55;">At full 25 MW utilization, Dominion's power cost advantage vs. grid-dependent operators is approximately <strong style="color:var(--t1);">$7M/year</strong> in operating cost savings.</div>
         </div>
         <a href="compute.html" style="display:block;margin-top:16px;font-size:13px;color:var(--acc);text-decoration:none;font-weight:500;">Explore Compute Services pricing →</a>
       </div>
@@ -212,11 +214,12 @@
   <div class="inner">
     <div class="sfl">© 2025 Dominion Hyperscale · Evansville, Indiana</div>
     <ul class="sfls">
-      <li><a href="index.html">Home</a></li>
       <li><a href="markets.html">Markets</a></li>
+      <li><a href="platform.html">Platform</a></li>
       <li><a href="compute.html">Compute</a></li>
-      <li><a href="campus.html">Campus Strategy</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="campus.html">Campus</a></li>
+      <li><a href="partnership.html">Partnership</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
 </footer>
