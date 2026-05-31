@@ -284,7 +284,7 @@
       <div class="model-card">
         <div class="model-num">02 — Build</div>
         <div class="model-title">Institutional-grade construction</div>
-        <div class="model-body">On-site natural gas generation sized to the full campus load. NVIDIA and AMD GPU infrastructure at scale. 100GbE east-west fabric with InfiniBand at Phase 2. Built to Tier 1 standards — because the clients demand it.</div>
+        <div class="model-body">On-site natural gas generation sized to the full campus load. NVIDIA GPU infrastructure at scale. 100GbE east-west fabric with InfiniBand at Phase 2. Built to Tier 1 standards — because the clients demand it.</div>
         <div class="model-connector">→</div>
       </div>
       <div class="model-card">
@@ -333,6 +333,37 @@
   </div>
 </section>
 
+<!-- CUSTOMERS -->
+<section class="sec-dark" id="customers">
+  <div class="inner">
+    <p class="sec-eyebrow">Who Dominion serves</p>
+    <h2>Two ways customers use Dominion.</h2>
+    <p class="sec-sub" style="margin-bottom:32px;">Concrete examples of the kinds of regional enterprise workloads Dominion is built for — the ML team at a hospital system deploying a vendor model, or the data science team at a manufacturer running their own platform.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px;">
+
+      <div style="background:var(--bg3);border:0.5px solid var(--bdr);border-radius:var(--r2);padding:28px 26px;">
+        <div style="font-size:11px;color:var(--acc);text-transform:uppercase;letter-spacing:1px;font-weight:500;margin-bottom:14px;">Regional hospital · vendor model deployment</div>
+        <div style="font-size:14px;color:var(--t2);line-height:1.65;margin-bottom:14px;">A regional hospital purchases a radiology assistance model from a vendor and needs to deploy it 24/7 for production use across the imaging department. They want HIPAA compliance, predictable cost, and someone to call when something breaks.</div>
+        <div style="font-size:13px;color:var(--t1);font-weight:500;margin-bottom:6px;">Dominion answer: Tier 1 Inference Cloud, committed tier</div>
+        <div style="font-size:13px;color:var(--t2);line-height:1.6;">$8K/mo · 4-GPU L40S dedicated allocation · HIPAA-compliant namespace · 99.999% SLA · dedicated account manager. The hospital brings the containerized model; Dominion runs it. Bundle pricing comparable to AWS SageMaker dedicated inference endpoints, with on-site infrastructure economics baked in.</div>
+      </div>
+
+      <div style="background:var(--bg3);border:0.5px solid var(--bdr);border-radius:var(--r2);padding:28px 26px;">
+        <div style="font-size:11px;color:var(--acc);text-transform:uppercase;letter-spacing:1px;font-weight:500;margin-bottom:14px;">Regional manufacturer · in-house data science team</div>
+        <div style="font-size:14px;color:var(--t2);line-height:1.65;margin-bottom:14px;">A regional manufacturer has a 4-person data science team building predictive maintenance models. They run experiments daily, deploy multiple model variants, A/B test, monitor drift, and retrain on schedule. They want the full MLOps stack without having to operate it.</div>
+        <div style="font-size:13px;color:var(--t1);font-weight:500;margin-bottom:6px;">Dominion answer: Tier 3 MLOps Suite + Tier 2 compute</div>
+        <div style="font-size:13px;color:var(--t2);line-height:1.6;">$3,500/mo platform access (MLflow, Prefect, Feast, BentoML, Evidently, Grafana) plus T2 H200 compute at $2.49/GPU-hr as they train. Their team works in the platform; Dominion runs the platform. The final production model can stay in T3 or migrate to T1 for dedicated inference.</div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:32px;">
+      <a href="compute.html" style="font-size:14px;color:var(--acc);text-decoration:none;font-weight:500;">See all four product tiers →</a>
+    </div>
+  </div>
+</section>
+
 <!-- TEAM -->
 <section class="sec" id="team">
   <div class="inner">
@@ -342,25 +373,25 @@
     <div class="team-grid">
       <div class="team-card">
         <div class="team-name">Tom Kolb</div>
-        <div class="team-title">Founder & CEO</div>
-        <div class="team-bio">Tom has spent his career building regional infrastructure companies — most recently Sitco, a regional communications infrastructure operator. He understands secondary markets, infrastructure financing, and the long game of operating assets that compound in value over time. Dominion Hyperscale is the application of that experience to AI infrastructure.</div>
+        <div class="team-title">CEO · Dominion Hyperscale &amp; Merlyn AI Labs</div>
+        <div class="team-bio">Tom has spent his career building regional infrastructure companies — most recently Sitco, a regional communications infrastructure operator. He understands secondary markets, infrastructure financing, and the long game of operating assets that compound in value over time. Tom serves as CEO of both Dominion Hyperscale and Merlyn AI Labs, holding the two-company ecosystem together as a single strategic vision.</div>
         <a href="mailto:tomk@dominionhyperscale.com" style="display:inline-block;margin-top:14px;font-size:12px;color:var(--acc);text-decoration:none;">tomk@dominionhyperscale.com</a>
       </div>
       <div class="team-card">
         <div class="team-name">Todd Mosby</div>
-        <div class="team-title">Founder & Advisor</div>
-        <div class="team-bio">Todd brings operational depth from a career in regional technology infrastructure and decades of economic development relationship-building across secondary markets. At Dominion, Todd leads enterprise sales — making the initial contacts with infrastructure investors, enterprise compute clients, and economic development authorities, and bringing in a sales engineer for follow-on technical conversations. He knows how to open doors in secondary markets and close them.</div>
+        <div class="team-title">Chief Revenue Officer · Co-Founder</div>
+        <div class="team-bio">Todd brings operational depth from a career in regional technology infrastructure and decades of economic development relationship-building across secondary markets. As Chief Revenue Officer across the Dominion–Merlyn ecosystem, Todd leads enterprise sales and customer relationships — making the initial contacts with infrastructure investors, enterprise compute clients, and economic development authorities, and bringing in technical leadership for follow-on conversations. He knows how to open doors in secondary markets and close them.</div>
         <a href="mailto:toddm@dominionhyperscale.com" style="display:inline-block;margin-top:14px;font-size:12px;color:var(--acc);text-decoration:none;">toddm@dominionhyperscale.com</a>
       </div>
       <div class="team-card">
         <div class="team-name">Walker West</div>
-        <div class="team-title">Co-Founder & VP of Decision Intelligence</div>
-        <div class="team-bio">Walker is the Director of Application Development at United Companies and co-founder of Merlyn AI Labs. At Dominion, Walker owns the AI platform layer: the managed compute stack, MLOps environment, and the technical standards that define how workloads run across the campus network.</div>
+        <div class="team-title">Chief AI Officer · Co-Founder</div>
+        <div class="team-bio">Walker is the Director of Application Development at United Companies and co-founder of the Dominion–Merlyn ecosystem. As Chief AI Officer, Walker owns the AI platform layer across both companies: Dominion's managed compute stack, MLOps environment, and technical standards for how workloads run across the campus network — and Merlyn's digital twin methodology, decision intelligence platform, and AI engineering practice.</div>
       </div>
       <div class="team-card">
         <div class="team-name">Dan Kolb</div>
-        <div class="team-title">Co-Founder & CTO</div>
-        <div class="team-bio">Dan brings deep technical leadership to Dominion's infrastructure build. He leads the technical design of the campus infrastructure — from power systems and network fabric to the Kubernetes compute layer that serves both internal campus operators and external enterprise clients.</div>
+        <div class="team-title">Chief Operating Officer · Co-Founder</div>
+        <div class="team-bio">Dan brings deep technical leadership to Dominion's infrastructure build. As Chief Operating Officer across the ecosystem, Dan owns data center operations, infrastructure build-out, and the technical design of the campus — from power systems and network fabric to the Kubernetes compute layer that serves both internal campus operators and external enterprise clients. Prior to Dominion, Dan spent eleven years as CTO at Sitco and currently serves as Director of Data Center Operations at Watch Communications in Evansville.</div>
       </div>
     </div>
 
