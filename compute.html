@@ -27,8 +27,7 @@
     .logo-text em{font-style:normal;color:var(--acc);letter-spacing:0.5px;}
     .snl{display:flex;gap:24px;list-style:none;}
     .snl a{font-size:13px;color:var(--t2);text-decoration:none;transition:color .15s;}
-    .snl a:hover{color:var(--t1);}
-    .snl a.nav-active{color:var(--t1);font-weight:500;border-bottom:2px solid var(--acc);padding-bottom:1px;}
+    .snl a:hover,.snl a.nav-active{color:var(--t1);}
     .sncta{font-size:13px;padding:8px 18px;background:var(--acc);color:#fff;border:none;border-radius:var(--r1);cursor:pointer;text-decoration:none;font-weight:500;transition:background .15s;}
     .sncta:hover{background:var(--acc2);}
     .nav-short{display:none;}
@@ -59,7 +58,7 @@
     .sec-sub{font-size:16px;color:var(--t2);line-height:1.7;max-width:600px;margin-bottom:48px;}
 
     /* TIER CARDS */
-    .tier-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+    .tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
     .tier-grid-wide{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:20px;}
     .tier{background:var(--bg3);border:0.5px solid var(--bdr);border-radius:var(--r2);padding:28px 24px;display:flex;flex-direction:column;}
     .tier.featured{border-color:rgba(232,119,34,0.4);background:rgba(232,119,34,0.04);}
@@ -116,8 +115,8 @@
     .sft{border-top:0.5px solid var(--bdr);padding:28px 0;}
     .sft .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
     .sfl{font-size:13px;color:var(--t3);}
-    .sfls{display:flex;flex-wrap:wrap;gap:8px 16px;list-style:none;}
-    .sfls a{font-size:12px;color:var(--t3);text-decoration:none;white-space:nowrap;}
+    .sfls{display:flex;gap:16px;list-style:none;}
+    .sfls a{font-size:12px;color:var(--t3);text-decoration:none;}
     .sfls a:hover{color:var(--t2);}
 
     @media(max-width:720px){
@@ -126,8 +125,7 @@
       .snl.open{display:block;}
       .snl li{display:block;height:48px;overflow:hidden;border-top:0.5px solid var(--bdr);}
       .snl a{display:block;height:48px;line-height:48px;padding:0 24px;font-size:14px;}
-      .sncta{font-size:12px;padding:6px 12px;margin-left:auto;margin-right:12px;}
-      .sn .inner{justify-content:flex-start;}
+      .sncta{font-size:12px;padding:6px 12px;}
       .nav-full{display:none;}
       .nav-short{display:inline;}
       .tier-grid,.tier-grid-wide,.hw-grid,.why-grid,.fed-grid{grid-template-columns:1fr;}
@@ -164,7 +162,7 @@
   <div class="inner">
     <p class="hero-eyebrow">Dominion Compute Services</p>
     <h1>Hyperscale AI compute.<br><em>At secondary market cost.</em></h1>
-    <p class="hero-sub">Dominion operates managed AI infrastructure with SLAs at the platform layer — Kubernetes, GPU allocation, storage, monitoring, and network. You bring the containers; we run the cluster. Institutional-grade compute at a fraction of cloud economics, because our power costs $0.02/kWh instead of $0.10.</p>
+    <p class="hero-sub">Dominion operates managed GPU infrastructure from its campus facilities. Enterprise ML teams get institutional-grade compute at a fraction of cloud economics — because our power costs $0.02/kWh instead of $0.10.</p>
     <div class="stat-row">
       <div class="stat">
         <div class="stat-num">$0.02</div>
@@ -175,7 +173,7 @@
         <div class="stat-lbl">lower power cost vs. cloud</div>
       </div>
       <div class="stat">
-        <div class="stat-num">99.999%</div>
+        <div class="stat-num">99.9%</div>
         <div class="stat-lbl">uptime SLA</div>
       </div>
       <div class="stat">
@@ -195,7 +193,7 @@
     <div class="why-grid">
       <div class="why">
         <div class="why-icon">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 2L11.5 7H16L12 10.5L13.5 16L9 13L4.5 16L6 10.5L2 7H6.5L9 2Z" stroke="#E87722" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="9" r="7" stroke="#E87722" stroke-width="1.5"/><path d="M11.5 6.5C11 5.5 10 5 9 5C7.5 5 6.5 5.7 6.5 7C6.5 8.3 7.5 9 9 9C10.5 9 11.5 9.7 11.5 11C11.5 12.3 10.5 13 9 13C8 13 7 12.5 6.5 11.5" stroke="#E87722" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4v10" stroke="#E87722" stroke-width="1.5" stroke-linecap="round"/></svg>
         </div>
         <div>
           <div class="why-title">Cloud GPU spend is your #2 line item</div>
@@ -204,7 +202,7 @@
       </div>
       <div class="why">
         <div class="why-icon">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="8" width="14" height="8" rx="2" stroke="#E87722" stroke-width="1.5"/><path d="M6 8V5a3 3 0 116 0v3" stroke="#E87722" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 2L3 4v5c0 4 2.5 6 6 7c3.5-1 6-3 6-7V4L9 2z" stroke="#E87722" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         <div>
           <div class="why-title">Data residency is non-negotiable</div>
@@ -213,7 +211,7 @@
       </div>
       <div class="why">
         <div class="why-icon">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="9" r="7" stroke="#E87722" stroke-width="1.5"/><path d="M9 5v4l2.5 2.5" stroke="#E87722" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 2L3 5v8l6 3l6-3V5L9 2z" stroke="#E87722" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M3 5l6 3l6-3" stroke="#E87722" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M9 8v8" stroke="#E87722" stroke-width="1.5" stroke-linecap="round"/></svg>
         </div>
         <div>
           <div class="why-title">You have ML capability, not ops capacity</div>
@@ -222,7 +220,7 @@
       </div>
       <div class="why">
         <div class="why-icon">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 15L7 11M7 11L11 15M7 11V3M11 3L15 7M15 7L11 3M15 7H7" stroke="#E87722" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="9" r="7" stroke="#E87722" stroke-width="1.5"/><circle cx="9" cy="9" r="4" stroke="#E87722" stroke-width="1.5"/><circle cx="9" cy="9" r="1.5" fill="#E87722"/></svg>
         </div>
         <div>
           <div class="why-title">Predictable cost, dedicated capacity</div>
@@ -233,56 +231,12 @@
   </div>
 </section>
 
-<!-- SHARED RESPONSIBILITY MODEL -->
-<section class="sec">
-  <div class="inner">
-    <p class="sec-eyebrow">Where the SLA boundary sits</p>
-    <h2>Managed infrastructure,<br>not managed application.</h2>
-    <p class="sec-sub">Dominion's SLA applies at the platform layer — the cluster, the GPUs, the storage, the network, the monitoring stack. Customer workloads run inside dedicated Kubernetes namespaces; Dominion runs everything below that line. This is the same shared-responsibility model that AWS, GCP, and Azure use — adapted to a regional, on-site, owned-infrastructure economics model.</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px;">
-      <div style="background:var(--bg3);border:0.5px solid var(--bdr);border-radius:var(--r2);padding:28px 26px;">
-        <div style="font-size:11px;color:var(--acc);text-transform:uppercase;letter-spacing:1px;font-weight:500;margin-bottom:18px;">Dominion runs</div>
-        <ul style="list-style:none;padding:0;margin:0;font-size:13px;color:var(--t2);line-height:1.9;">
-          <li>Physical data center facility · power · cooling</li>
-          <li>On-site natural gas generation (N+1)</li>
-          <li>Network fabric · 100GbE east-west · InfiniBand at scale</li>
-          <li>GPU hardware · NVIDIA H200 · L40S · Blackwell (1b+)</li>
-          <li>Three-tier storage · NVMe · SSD · object</li>
-          <li>Kubernetes control plane · multi-tenant namespacing</li>
-          <li>GPU Operator · MIG partitioning · Volcano scheduling</li>
-          <li>Monitoring stack · Prometheus · Grafana · alerting</li>
-          <li>Private container registry · TLS 1.3 · AES-256 at rest</li>
-          <li>Secrets management · RBAC · network policies</li>
-          <li>24/7 NOC · incident response · on-call escalation</li>
-          <li>HIPAA BAA · SOC 2 audit trail (committed tiers)</li>
-        </ul>
-      </div>
-      <div style="background:var(--bg3);border:0.5px solid var(--bdr);border-radius:var(--r2);padding:28px 26px;">
-        <div style="font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:1px;font-weight:500;margin-bottom:18px;">You run</div>
-        <ul style="list-style:none;padding:0;margin:0;font-size:13px;color:var(--t2);line-height:1.9;">
-          <li>Container images · CUDA-compiled workloads</li>
-          <li>Model code · training scripts · inference servers</li>
-          <li>Application logic · API surfaces · business rules</li>
-          <li>Customer data · ingestion · transformation</li>
-          <li>Model artifacts · versioning · deployment decisions</li>
-          <li>Workload-specific monitoring · custom metrics</li>
-          <li>End-user authentication · application RBAC</li>
-          <li>Data governance · classification · retention policies</li>
-        </ul>
-        <div style="margin-top:20px;padding:14px 16px;background:rgba(232,119,34,0.06);border:0.5px solid rgba(232,119,34,0.15);border-radius:var(--r1);">
-          <div style="font-size:12px;color:var(--t2);line-height:1.55;">Need workload-level managed services on top of Dominion infrastructure? <a href="https://merlynailabs.com" style="color:var(--acc);text-decoration:none;font-weight:500;">Merlyn AI Labs</a> provides managed applications with SLAs at the workload layer — bespoke digital twins, deployed AI agents, and managed model operations. The two SLAs stack: Dominion's platform reliability under Merlyn's application reliability.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- TIERS -->
 <section class="sec" id="tiers">
   <div class="inner">
     <p class="sec-eyebrow">Product tiers</p>
-    <h2>Four ways to use<br>Dominion infrastructure.</h2>
-    <p class="sec-sub">From on-demand training runs to fully isolated private AI infrastructure. All managed tiers include Dominion's Kubernetes layer — no cluster operations required on your end.</p>
+    <h2>Five ways to use<br>Dominion infrastructure.</h2>
+    <p class="sec-sub">From on-demand training runs to long-term reserved frontier clusters. All managed tiers include Dominion's Kubernetes layer — no cluster operations required on your end.</p>
 
     <!-- Row 1: Tiers 1–3 -->
     <div class="tier-grid">
@@ -290,23 +244,19 @@
       <div class="tier">
         <div class="tier-badge">Tier 1</div>
         <div class="tier-name">Inference Cloud</div>
-        <div class="tier-desc">L40S GPU capacity for inference workloads, available two ways. Shared on-demand for development, burst inference, and ad-hoc workloads — pay by the hour, no commitment, 99.9% SLA. Dedicated committed for production — the full managed-infrastructure bundle including dedicated GPU allocation, managed Kubernetes, monitoring stack, HIPAA-compliant namespace, 99.999% SLA, and a dedicated account manager. Bundle pricing is comparable to AWS SageMaker for equivalent dedicated inference capacity.</div>
+        <div class="tier-desc">Dedicated GPU nodes reserved on a monthly committed basis. You bring the containerized model; Dominion manages the infrastructure, autoscaling, monitoring, security, and SLA. Best for sustained production inference workloads.</div>
         <div class="tier-price">
-          <strong>From $1.50/GPU-hr · or $8K/mo</strong>
-          Shared on-demand · or dedicated 4-GPU commit
+          <strong>From $8,000/mo</strong>
+          4 GPUs · committed monthly · 99.9% SLA
         </div>
         <ul class="tier-features">
-          <li>Shared on-demand L40S: $1.50–2.50/GPU-hr · 99.9% SLA</li>
-          <li>Dedicated L40S committed: from $8K/mo · 99.999% SLA</li>
-          <li>Managed Kubernetes deployment (both tiers)</li>
-          <li>Dedicated namespace + ingress (committed tier)</li>
-          <li>HIPAA-compliant namespace (committed tier)</li>
-          <li>Dedicated account manager (committed tier)</li>
+          <li>Dedicated GPU node allocation</li>
+          <li>Managed Kubernetes deployment</li>
+          <li>Private container registry</li>
+          <li>Client-specific ingress endpoint</li>
+          <li>99.9% uptime SLA with remediation</li>
+          <li>HIPAA-compliant namespace available</li>
         </ul>
-        <div style="margin-top:14px;padding:12px 14px;background:rgba(232,119,34,0.06);border:0.5px solid rgba(232,119,34,0.15);border-radius:var(--r1);">
-          <div style="font-size:10px;color:var(--acc);text-transform:uppercase;letter-spacing:0.8px;font-weight:500;margin-bottom:6px;">Committed bundle vs AWS SageMaker</div>
-          <div style="font-size:12px;color:var(--t2);line-height:1.55;">T1 committed at $8K/mo includes a dedicated 4-GPU L40S allocation, managed Kubernetes namespace, monitoring stack, HIPAA BAA, 99.999% SLA, and a dedicated account manager. Comparable to AWS SageMaker dedicated inference endpoints with equivalent capacity and compliance scope — with the on-site infrastructure economics ($0.02/kWh power, no cross-region egress fees) baked into the rate.</div>
-        </div>
         <a href="contact.html?interest=compute-inference" style="display:block;margin-top:18px;font-size:13px;color:var(--acc);text-decoration:none;font-weight:500;">Talk to us about Inference Cloud →</a>
       </div>
 
@@ -315,13 +265,13 @@
         <div class="tier-name">Training Platform</div>
         <div class="tier-desc">GPU capacity for training and fine-tuning runs — available on demand or as a reserved cluster with a committed rate. Submit a job or reserve a cluster; Dominion manages scheduling, artifact storage, and monitoring. No Kubernetes expertise required.</div>
         <div class="tier-price">
-          <strong>From $2.49/GPU-hr</strong>
-          NVIDIA H200 · on demand · no commitment required
+          <strong>From $1.80/GPU-hr</strong>
+          AMD MI300X · on demand · no commitment required
         </div>
         <ul class="tier-features">
-          <li>NVIDIA H200 on-demand: $2.49/GPU-hr</li>
+          <li>NVIDIA B200/H100: $2.80/GPU-hr on demand</li>
+          <li>AMD MI300X (ROCm): $1.80/GPU-hr on demand</li>
           <li>Reserved cluster rate available on 12-mo commit</li>
-          <li>Blackwell B200/B300 capacity added in Phase 1b expansion</li>
           <li>Managed job scheduling (Volcano)</li>
           <li>Model artifact storage + versioning</li>
           <li>Training run monitoring + alerts</li>
@@ -331,7 +281,7 @@
 
       <div class="tier">
         <div class="tier-badge">Tier 3</div>
-        <div class="tier-name">MLOps Suite</div>
+        <div class="tier-name">MLOps Platform</div>
         <div class="tier-desc">A complete managed ML development environment for organizations with internal data science teams. Experiment tracking, model registry, pipeline orchestration, feature store, model serving, and drift monitoring — all managed by Dominion. Your team uses it; we run it.</div>
         <div class="tier-price">
           <strong>From $3,500/mo</strong>
@@ -345,8 +295,13 @@
           <li>Evidently AI + Grafana monitoring</li>
           <li>Academic plan available ($500/mo)</li>
         </ul>
-        <a href="contact.html?interest=compute-mlops" style="display:block;margin-top:18px;font-size:13px;color:var(--acc);text-decoration:none;font-weight:500;">Talk to us about MLOps Suite →</a>
+        <a href="contact.html?interest=compute-mlops" style="display:block;margin-top:18px;font-size:13px;color:var(--acc);text-decoration:none;font-weight:500;">Talk to us about MLOps Platform →</a>
       </div>
+
+    </div>
+
+    <!-- Row 2: Tiers 4–5 -->
+    <div class="tier-grid-wide">
 
       <div class="tier">
         <div class="tier-badge">Tier 4</div>
@@ -367,21 +322,36 @@
         <a href="contact.html?interest=compute-private" style="display:block;margin-top:18px;font-size:13px;color:var(--acc);text-decoration:none;font-weight:500;">Talk to us about Private AI Cloud →</a>
       </div>
 
+      <div class="tier" style="border-color:rgba(232,119,34,0.35);background:rgba(232,119,34,0.03);">
+        <div class="tier-badge" style="color:var(--acc);">Tier 5 · Anchor</div>
+        <div class="tier-name">Frontier Reserved</div>
+        <div class="tier-desc">Dedicated NVIDIA B300-class clusters on 24-month take-or-pay contracts. Designed for AI model companies, frontier labs, and enterprise AI programs that need guaranteed, non-preemptible access to frontier-density training infrastructure — without a hyperscaler waitlist. No queue. No spot pricing. Priority access with 800G InfiniBand fabric and hot-tier storage that keeps GPUs running at peak utilization.</div>
+        <div class="tier-price">
+          <strong>Contact for pricing</strong>
+          B300-class · 24-mo reserved · InfiniBand fabric
+        </div>
+        <ul class="tier-features">
+          <li>NVIDIA B300 clusters — 64 GPUs per rack at 150–200 kW</li>
+          <li>800G InfiniBand east-west fabric</li>
+          <li>HOT/WARM/COLD tiered data lakehouse per cluster</li>
+          <li>Take-or-pay contract with construction milestone clause</li>
+          <li>Priority access — no preemption, no queueing</li>
+          <li>Dedicated infrastructure sales contact from day one</li>
+        </ul>
+        <a href="contact.html?interest=compute-frontier" style="display:block;margin-top:18px;font-size:13px;color:var(--acc);text-decoration:none;font-weight:500;">Talk to us about Frontier Reserved →</a>
+      </div>
+
     </div>
 
   <div style="margin-top:32px;padding:20px 24px;background:rgba(232,119,34,0.04);border:0.5px solid rgba(232,119,34,0.15);border-radius:var(--r2);">
     <div style="font-size:13px;color:var(--t1);font-weight:600;margin-bottom:6px;">Not sure which tier fits?</div>
     <div style="font-size:13px;color:var(--t2);line-height:1.6;">
-      <strong style="color:var(--t1);">Inference Cloud</strong> is for production models running continuously on committed capacity, or for ad-hoc inference on a shared pool.
+      <strong style="color:var(--t1);">Inference Cloud</strong> is for production models running continuously on committed capacity.
       <strong style="color:var(--t1);">Training Platform</strong> is for teams running training and fine-tuning jobs on demand or on a reserved cluster.
-      <strong style="color:var(--t1);">MLOps Suite</strong> is for teams that want to manage the full ML development lifecycle.
+      <strong style="color:var(--t1);">MLOps Platform</strong> is for teams that want to manage the full ML development lifecycle.
       <strong style="color:var(--t1);">Private AI Cloud</strong> is for organizations with strict compliance or isolation requirements.
+      <strong style="color:var(--t1);">Frontier Reserved</strong> is for AI labs and enterprise teams that need guaranteed dedicated frontier training clusters on a 24-month commitment.
       If you need someone to build the models rather than just run them, see below.
-    </div>
-    <div style="margin-top:20px;padding-top:16px;border-top:0.5px solid rgba(232,119,34,0.15);font-size:13px;color:var(--t1);font-weight:600;margin-bottom:8px;">Two ways customers use Dominion</div>
-    <div style="font-size:13px;color:var(--t2);line-height:1.65;">
-      <p style="margin:0 0 12px 0;"><strong style="color:var(--t1);">A regional hospital purchases a radiology assistance model from a vendor</strong> and needs to deploy it 24/7 for production use across the imaging department. That's <strong style="color:var(--t1);">Tier 1 Inference Cloud</strong> on the committed tier — $8K/mo for a 4-GPU L40S allocation, dedicated namespace, HIPAA-compliant network segment, 99.999% SLA, and a dedicated account manager. The hospital brings the containerized model; Dominion runs it.</p>
-      <p style="margin:0;"><strong style="color:var(--t1);">A regional manufacturer has a 4-person data science team building predictive maintenance models.</strong> They run experiments daily, deploy multiple model variants, A/B test them, monitor drift over time, retrain on schedule. That's <strong style="color:var(--t1);">Tier 3 MLOps Suite</strong> — $3,500/mo for the development environment (MLflow, Prefect, Feast, BentoML, Evidently, Grafana) plus T2 compute rates as they train. Their team works in the platform; Dominion runs the platform. Their final production model can stay in T3 with BentoML serving, or migrate to T1 for dedicated production inference.</p>
     </div>
   </div>
   <div class="merlyn-ref" style="margin-top:14px;">
@@ -408,22 +378,20 @@
     <p class="sec-sub">Every Dominion facility is built to the same technical standard as a Tier 1 hyperscaler. The difference is where it's built — and what that does to the power bill.</p>
     <div class="hw-grid">
       <div class="hw-card">
-        <h3>NVIDIA H200 — Large-scale training</h3>
-        <div class="hw-row"><span class="hw-label">GPU hardware (Phase 1a)</span><span class="hw-val">H200</span></div>
-        <div class="hw-row"><span class="hw-label">Upgrade path</span><span class="hw-val">Blackwell B200/B300 in Phase 1b+</span></div>
+        <h3>NVIDIA — Large-scale training + inference</h3>
+        <div class="hw-row"><span class="hw-label">GPU hardware</span><span class="hw-val">Blackwell B200 / H100</span></div>
         <div class="hw-row"><span class="hw-label">Intra-rack interconnect</span><span class="hw-val">NVLink</span></div>
-        <div class="hw-row"><span class="hw-label">Network fabric</span><span class="hw-val">InfiniBand at full build</span></div>
+        <div class="hw-row"><span class="hw-label">Network fabric</span><span class="hw-val">InfiniBand (Phase 3)</span></div>
         <div class="hw-row"><span class="hw-label">Scheduling</span><span class="hw-val">NVIDIA GPU Operator + Volcano</span></div>
-        <div class="hw-row"><span class="hw-label">On-demand rate</span><span class="hw-val acc">$2.49 / GPU-hr</span></div>
+        <div class="hw-row"><span class="hw-label">On-demand rate</span><span class="hw-val acc">$2.80 / GPU-hr</span></div>
       </div>
       <div class="hw-card">
-        <h3>NVIDIA L40S — Tier 1 inference</h3>
-        <div class="hw-row"><span class="hw-label">GPU hardware</span><span class="hw-val">NVIDIA L40S</span></div>
-        <div class="hw-row"><span class="hw-label">Optimized for</span><span class="hw-val">Tier 1 Inference Cloud</span></div>
-        <div class="hw-row"><span class="hw-label">Software stack</span><span class="hw-val">NVIDIA TensorRT-LLM</span></div>
-        <div class="hw-row"><span class="hw-label">Scheduling</span><span class="hw-val">NVIDIA GPU Operator</span></div>
-        <div class="hw-row"><span class="hw-label">On-demand rate</span><span class="hw-val acc">From $1.50 / GPU-hr</span></div>
-        <div class="hw-row"><span class="hw-label">Committed rate</span><span class="hw-val acc">From $8K / mo · 4 GPUs</span></div>
+        <h3>AMD MI300X — Cost-optimized inference</h3>
+        <div class="hw-row"><span class="hw-label">GPU hardware</span><span class="hw-val">AMD MI300X</span></div>
+        <div class="hw-row"><span class="hw-label">Software stack</span><span class="hw-val">NixOS + ROCm</span></div>
+        <div class="hw-row"><span class="hw-label">Network fabric</span><span class="hw-val">100GbE east-west</span></div>
+        <div class="hw-row"><span class="hw-label">Scheduling</span><span class="hw-val">AMD ROCm device plugin</span></div>
+        <div class="hw-row"><span class="hw-label">On-demand rate</span><span class="hw-val acc">$1.80 / GPU-hr</span></div>
       </div>
       <div class="hw-card">
         <h3>Storage — Three-tier architecture</h3>
@@ -438,7 +406,7 @@
         <div class="hw-row"><span class="hw-label">Dominion cost</span><span class="hw-val acc">$0.02 / kWh</span></div>
         <div class="hw-row"><span class="hw-label">Cloud equivalent</span><span class="hw-val">$0.08–0.12 / kWh</span></div>
         <div class="hw-row"><span class="hw-label">Capacity (Phase 1)</span><span class="hw-val">6 MW</span></div>
-        <div class="hw-row"><span class="hw-label">Capacity (full build)</span><span class="hw-val">25 MW</span></div>
+        <div class="hw-row"><span class="hw-label">Capacity (full build)</span><span class="hw-val">48 MW</span></div>
       </div>
     </div>
   </div>
@@ -487,12 +455,12 @@
   <div class="inner">
     <div class="sfl">© 2025 Dominion Hyperscale · Evansville, Indiana</div>
     <ul class="sfls">
-      <li><a href="markets.html">Markets</a></li>
-      <li><a href="platform.html">Platform</a></li>
+      <li><a href="index.html#thesis">Thesis</a></li>
+      <li><a href="index.html#model">Model</a></li>
       <li><a href="compute.html">Compute</a></li>
-      <li><a href="campus.html">Campus</a></li>
-      <li><a href="partnership.html">Partnership</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="campus.html">Campus Strategy</a></li>
+      <li><a href="index.html#team">Team</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
     </ul>
   </div>
 </footer>

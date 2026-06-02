@@ -27,8 +27,7 @@
     .logo-text em{font-style:normal;color:var(--acc);letter-spacing:0.5px;}
     .snl{display:flex;gap:22px;list-style:none;}
     .snl a{font-size:13px;color:var(--t2);text-decoration:none;transition:color .15s;}
-    .snl a:hover{color:var(--t1);}
-    .snl a.nav-active{color:var(--t1);font-weight:500;border-bottom:2px solid var(--acc);padding-bottom:1px;}
+    .snl a:hover,.snl a.nav-active{color:var(--t1);}
     .sncta{font-size:13px;padding:8px 18px;background:var(--acc);color:#fff;border:none;border-radius:var(--r1);cursor:pointer;text-decoration:none;font-weight:500;transition:background .15s;}
     .sncta:hover{background:var(--acc2);}
     .nav-short{display:none;}
@@ -106,8 +105,8 @@
     .sft{border-top:0.5px solid var(--bdr);padding:28px 0;}
     .sft .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
     .sfl{font-size:13px;color:var(--t3);}
-    .sfls{display:flex;flex-wrap:wrap;gap:8px 16px;list-style:none;}
-    .sfls a{font-size:12px;color:var(--t3);text-decoration:none;white-space:nowrap;}
+    .sfls{display:flex;gap:16px;list-style:none;}
+    .sfls a{font-size:12px;color:var(--t3);text-decoration:none;}
     .sfls a:hover{color:var(--t2);}
 
     @media(max-width:720px){
@@ -116,8 +115,7 @@
       .snl.open{display:block;}
       .snl li{display:block;height:48px;overflow:hidden;border-top:0.5px solid var(--bdr);}
       .snl a{display:block;height:48px;line-height:48px;padding:0 24px;font-size:14px;}
-      .sncta{font-size:12px;padding:6px 12px;margin-left:auto;margin-right:12px;}
-      .sn .inner{justify-content:flex-start;}
+      .sncta{font-size:12px;padding:6px 12px;}
       .nav-full{display:none;}
       .nav-short{display:inline;}
       .hero h1{font-size:32px;}
@@ -192,6 +190,7 @@
               <option value="compute-training">Managed GPU compute — training</option>
               <option value="compute-mlops">MLOps platform</option>
               <option value="compute-private">Private AI Cloud</option>
+              <option value="compute-frontier">Frontier Reserved — anchor cluster</option>
               <option value="campus-city">Civic Campus — city or economic development</option>
               <option value="campus-operator">Civic Campus — campus operator inquiry</option>
               <option value="campus-community">Civic Campus — community partnership</option>
@@ -255,11 +254,11 @@
   <div class="inner">
     <div class="sfl">© 2025 Dominion Hyperscale · Evansville, Indiana</div>
     <ul class="sfls">
+      <li><a href="index.html">Home</a></li>
       <li><a href="markets.html">Markets</a></li>
       <li><a href="platform.html">Platform</a></li>
       <li><a href="compute.html">Compute</a></li>
-      <li><a href="campus.html">Campus</a></li>
-      <li><a href="partnership.html">Partnership</a></li>
+      <li><a href="campus.html">Campus Strategy</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>

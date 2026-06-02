@@ -27,8 +27,7 @@
     .logo-text em{font-style:normal;color:var(--acc);letter-spacing:0.5px;}
     .snl{display:flex;gap:22px;list-style:none;}
     .snl a{font-size:13px;color:var(--t2);text-decoration:none;transition:color .15s;}
-    .snl a:hover{color:var(--t1);}
-    .snl a.nav-active{color:var(--t1);font-weight:500;border-bottom:2px solid var(--acc);padding-bottom:1px;}
+    .snl a:hover,.snl a.nav-active{color:var(--t1);}
     .sncta{font-size:13px;padding:8px 18px;background:var(--acc);color:#fff;border:none;border-radius:var(--r1);cursor:pointer;text-decoration:none;font-weight:500;transition:background .15s;}
     .sncta:hover{background:var(--acc2);}
     .nav-short{display:none;}
@@ -122,8 +121,8 @@
     .sft{border-top:0.5px solid var(--bdr);padding:28px 0;}
     .sft .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
     .sfl{font-size:13px;color:var(--t3);}
-    .sfls{display:flex;flex-wrap:wrap;gap:8px 16px;list-style:none;}
-    .sfls a{font-size:12px;color:var(--t3);text-decoration:none;white-space:nowrap;}
+    .sfls{display:flex;gap:16px;list-style:none;}
+    .sfls a{font-size:12px;color:var(--t3);text-decoration:none;}
     .sfls a:hover{color:var(--t2);}
 
     @media(max-width:720px){
@@ -132,8 +131,7 @@
       .snl.open{display:block;}
       .snl li{display:block;height:48px;overflow:hidden;border-top:0.5px solid var(--bdr);}
       .snl a{display:block;height:48px;line-height:48px;padding:0 24px;font-size:14px;}
-      .sncta{font-size:12px;padding:6px 12px;margin-left:auto;margin-right:12px;}
-      .sn .inner{justify-content:flex-start;}
+      .sncta{font-size:12px;padding:6px 12px;}
       .nav-full{display:none;}
       .nav-short{display:inline;}
       .hero h1{font-size:34px;}
@@ -226,7 +224,7 @@
         <rect x="184" y="108" width="30" height="10" rx="2" fill="#2A2A2A"/>
         <rect x="220" y="108" width="20" height="10" rx="2" fill="#252525"/>
         <rect x="40" y="128" width="200" height="18" rx="4" fill="#222" stroke="#444" stroke-width="0.5"/>
-        <text x="140" y="140" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#C8C7C2">99.999% uptime · 6→25 MW phased</text>
+        <text x="140" y="140" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" fill="#C8C7C2">99.9% uptime · 6–48 MW</text>
       </svg>
     </div>
   </div>
@@ -260,8 +258,8 @@
           <div class="thesis-stat-lbl">hyperscale competitors in our target markets at the scale we're building</div>
         </div>
         <div class="thesis-stat">
-          <div class="thesis-stat-num">25 MW</div>
-          <div class="thesis-stat-lbl">first facility capacity — phased build (6 MW → 12 MW → 25 MW), triggered off contracted capacity</div>
+          <div class="thesis-stat-num">48 MW</div>
+          <div class="thesis-stat-lbl">first facility capacity — expandable to the site's physical limit</div>
         </div>
       </div>
     </div>
@@ -284,7 +282,7 @@
       <div class="model-card">
         <div class="model-num">02 — Build</div>
         <div class="model-title">Institutional-grade construction</div>
-        <div class="model-body">On-site natural gas generation sized to the full campus load. NVIDIA GPU infrastructure at scale. 100GbE east-west fabric with InfiniBand at Phase 2. Built to Tier 1 standards — because the clients demand it.</div>
+        <div class="model-body">On-site natural gas generation sized to the full campus load. NVIDIA and AMD GPU infrastructure at scale. 100GbE east-west fabric with InfiniBand at Phase 3. Built to Tier 1 standards — because the clients demand it.</div>
         <div class="model-connector">→</div>
       </div>
       <div class="model-card">
@@ -309,7 +307,7 @@
         <div class="adv-eyebrow">Advantage 01 — Power</div>
         <div class="adv-title">$0.02/kWh.<br>They pay $0.10.</div>
         <div class="adv-body">
-          <p>On-site natural gas generation eliminates grid dependency for the primary compute load. At full 25 MW utilization, Dominion's power cost advantage over a grid-dependent operator is approximately <strong>$7M per year</strong>.</p>
+          <p>On-site natural gas generation eliminates grid dependency for the primary compute load. At full 48 MW utilization, Dominion's power cost advantage over a grid-dependent operator is approximately <strong>$14M per year</strong>.</p>
           <p>This isn't an arbitrage that closes. Natural gas pipeline access is a physical asset tied to the site. The savings compound with every megawatt of capacity that comes online.</p>
           <p>It means Dominion can price compute services materially below cloud competitors and still generate strong gross margins — and the economics work at lower utilization levels that would be loss-making for a grid-dependent operator.</p>
         </div>
@@ -333,37 +331,6 @@
   </div>
 </section>
 
-<!-- CUSTOMERS -->
-<section class="sec-dark" id="customers">
-  <div class="inner">
-    <p class="sec-eyebrow">Who Dominion serves</p>
-    <h2>Two ways customers use Dominion.</h2>
-    <p class="sec-sub" style="margin-bottom:32px;">Concrete examples of the kinds of regional enterprise workloads Dominion is built for — the ML team at a hospital system deploying a vendor model, or the data science team at a manufacturer running their own platform.</p>
-
-    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px;">
-
-      <div style="background:var(--bg3);border:0.5px solid var(--bdr);border-radius:var(--r2);padding:28px 26px;">
-        <div style="font-size:11px;color:var(--acc);text-transform:uppercase;letter-spacing:1px;font-weight:500;margin-bottom:14px;">Regional hospital · vendor model deployment</div>
-        <div style="font-size:14px;color:var(--t2);line-height:1.65;margin-bottom:14px;">A regional hospital purchases a radiology assistance model from a vendor and needs to deploy it 24/7 for production use across the imaging department. They want HIPAA compliance, predictable cost, and someone to call when something breaks.</div>
-        <div style="font-size:13px;color:var(--t1);font-weight:500;margin-bottom:6px;">Dominion answer: Tier 1 Inference Cloud, committed tier</div>
-        <div style="font-size:13px;color:var(--t2);line-height:1.6;">$8K/mo · 4-GPU L40S dedicated allocation · HIPAA-compliant namespace · 99.999% SLA · dedicated account manager. The hospital brings the containerized model; Dominion runs it. Bundle pricing comparable to AWS SageMaker dedicated inference endpoints, with on-site infrastructure economics baked in.</div>
-      </div>
-
-      <div style="background:var(--bg3);border:0.5px solid var(--bdr);border-radius:var(--r2);padding:28px 26px;">
-        <div style="font-size:11px;color:var(--acc);text-transform:uppercase;letter-spacing:1px;font-weight:500;margin-bottom:14px;">Regional manufacturer · in-house data science team</div>
-        <div style="font-size:14px;color:var(--t2);line-height:1.65;margin-bottom:14px;">A regional manufacturer has a 4-person data science team building predictive maintenance models. They run experiments daily, deploy multiple model variants, A/B test, monitor drift, and retrain on schedule. They want the full MLOps stack without having to operate it.</div>
-        <div style="font-size:13px;color:var(--t1);font-weight:500;margin-bottom:6px;">Dominion answer: Tier 3 MLOps Suite + Tier 2 compute</div>
-        <div style="font-size:13px;color:var(--t2);line-height:1.6;">$3,500/mo platform access (MLflow, Prefect, Feast, BentoML, Evidently, Grafana) plus T2 H200 compute at $2.49/GPU-hr as they train. Their team works in the platform; Dominion runs the platform. The final production model can stay in T3 or migrate to T1 for dedicated inference.</div>
-      </div>
-
-    </div>
-
-    <div style="text-align:center;margin-top:32px;">
-      <a href="compute.html" style="font-size:14px;color:var(--acc);text-decoration:none;font-weight:500;">See all four product tiers →</a>
-    </div>
-  </div>
-</section>
-
 <!-- TEAM -->
 <section class="sec" id="team">
   <div class="inner">
@@ -373,25 +340,25 @@
     <div class="team-grid">
       <div class="team-card">
         <div class="team-name">Tom Kolb</div>
-        <div class="team-title">CEO · Dominion Hyperscale &amp; Merlyn AI Labs</div>
-        <div class="team-bio">Tom has spent his career building regional infrastructure companies — most recently Sitco, a regional communications infrastructure operator. He understands secondary markets, infrastructure financing, and the long game of operating assets that compound in value over time. Tom serves as CEO of both Dominion Hyperscale and Merlyn AI Labs, holding the two-company ecosystem together as a single strategic vision.</div>
+        <div class="team-title">Founder & CEO</div>
+        <div class="team-bio">Tom has spent his career building regional infrastructure companies — most recently Sitco, a regional communications infrastructure operator. He understands secondary markets, infrastructure financing, and the long game of operating assets that compound in value over time. Dominion Hyperscale is the application of that experience to AI infrastructure.</div>
         <a href="mailto:tomk@dominionhyperscale.com" style="display:inline-block;margin-top:14px;font-size:12px;color:var(--acc);text-decoration:none;">tomk@dominionhyperscale.com</a>
       </div>
       <div class="team-card">
         <div class="team-name">Todd Mosby</div>
-        <div class="team-title">Chief Revenue Officer · Co-Founder</div>
-        <div class="team-bio">Todd brings operational depth from a career in regional technology infrastructure and decades of economic development relationship-building across secondary markets. As Chief Revenue Officer across the Dominion–Merlyn ecosystem, Todd leads enterprise sales and customer relationships — making the initial contacts with infrastructure investors, enterprise compute clients, and economic development authorities, and bringing in technical leadership for follow-on conversations. He knows how to open doors in secondary markets and close them.</div>
+        <div class="team-title">Founder & Advisor</div>
+        <div class="team-bio">Todd brings operational depth from a career in regional technology infrastructure and decades of economic development relationship-building across secondary markets. At Dominion, Todd leads enterprise sales — making the initial contacts with infrastructure investors, enterprise compute clients, and economic development authorities, and bringing in a sales engineer for follow-on technical conversations. He knows how to open doors in secondary markets and close them.</div>
         <a href="mailto:toddm@dominionhyperscale.com" style="display:inline-block;margin-top:14px;font-size:12px;color:var(--acc);text-decoration:none;">toddm@dominionhyperscale.com</a>
       </div>
       <div class="team-card">
         <div class="team-name">Walker West</div>
-        <div class="team-title">Chief AI Officer · Co-Founder</div>
-        <div class="team-bio">Walker is the Director of Application Development at United Companies and co-founder of the Dominion–Merlyn ecosystem. As Chief AI Officer, Walker owns the AI platform layer across both companies: Dominion's managed compute stack, MLOps environment, and technical standards for how workloads run across the campus network — and Merlyn's digital twin methodology, decision intelligence platform, and AI engineering practice.</div>
+        <div class="team-title">Co-Founder & VP of Decision Intelligence</div>
+        <div class="team-bio">Walker is the Director of Application Development at United Companies and co-founder of Merlyn AI Labs. At Dominion, Walker owns the AI platform layer: the managed compute stack, MLOps environment, and the technical standards that define how workloads run across the campus network.</div>
       </div>
       <div class="team-card">
         <div class="team-name">Dan Kolb</div>
-        <div class="team-title">Chief Operating Officer · Co-Founder</div>
-        <div class="team-bio">Dan brings deep technical leadership to Dominion's infrastructure build. As Chief Operating Officer across the ecosystem, Dan owns data center operations, infrastructure build-out, and the technical design of the campus — from power systems and network fabric to the Kubernetes compute layer that serves both internal campus operators and external enterprise clients. Prior to Dominion, Dan spent eleven years as CTO at Sitco and currently serves as Director of Data Center Operations at Watch Communications in Evansville.</div>
+        <div class="team-title">Co-Founder & CTO</div>
+        <div class="team-bio">Dan brings deep technical leadership to Dominion's infrastructure build. He leads the technical design of the campus infrastructure — from power systems and network fabric to the Kubernetes compute layer that serves both internal campus operators and external enterprise clients.</div>
       </div>
     </div>
 
@@ -445,11 +412,12 @@
   <div class="inner">
     <div class="sfl">© 2025 Dominion Hyperscale · Evansville, Indiana</div>
     <ul class="sfls">
+      <li><a href="#thesis">Thesis</a></li>
       <li><a href="markets.html">Markets</a></li>
       <li><a href="platform.html">Platform</a></li>
       <li><a href="compute.html">Compute</a></li>
-      <li><a href="campus.html">Campus</a></li>
-      <li><a href="partnership.html">Partnership</a></li>
+      <li><a href="campus.html">Campus Strategy</a></li>
+      <li><a href="#team">Team</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
@@ -466,46 +434,6 @@
       if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth',block:'start'}); }
     });
   });
-
-  // Dynamic active state for anchor links — handles click, scroll, and URL hash
-  (function(){
-    const navLinks = document.querySelectorAll('.snl a');
-    if(!navLinks.length) return;
-    const sectionMap = {};
-    navLinks.forEach(link => {
-      const m = link.getAttribute('href').match(/#([^#]+)$/);
-      if(m){
-        const section = document.getElementById(m[1]);
-        if(section) sectionMap[m[1]] = link;
-      }
-    });
-    function setActive(link){
-      navLinks.forEach(a => a.classList.remove('nav-active'));
-      if(link) link.classList.add('nav-active');
-    }
-    // On click of any anchor nav link, update active immediately
-    navLinks.forEach(link => {
-      link.addEventListener('click', function(){
-        if(this.getAttribute('href').match(/#[^#]+$/)) setActive(this);
-      });
-    });
-    // On scroll, update active based on which section is in viewport center
-    if(Object.keys(sectionMap).length && 'IntersectionObserver' in window){
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if(entry.isIntersecting && sectionMap[entry.target.id]){
-            setActive(sectionMap[entry.target.id]);
-          }
-        });
-      }, {rootMargin: '-40% 0px -40% 0px', threshold: 0});
-      Object.keys(sectionMap).forEach(id => observer.observe(document.getElementById(id)));
-    }
-    // On page load, honor URL hash
-    if(window.location.hash){
-      const link = Array.from(navLinks).find(a => a.getAttribute('href').endsWith(window.location.hash));
-      if(link) setActive(link);
-    }
-  })();
 </script>
 </body>
 </html>
