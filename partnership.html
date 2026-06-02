@@ -16,10 +16,11 @@
     .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
     .logo img{height:36px;width:36px;background:#fff;border-radius:6px;padding:2px;}
     .logo-text{font-size:13px;font-weight:700;color:var(--t1);letter-spacing:1.5px;text-transform:uppercase;}
-    .logo-text em{font-style:normal;color:var(--acc);}
+    .logo-text em{font-style:normal;color:var(--acc);letter-spacing:0.5px;}
     .snl{display:flex;gap:22px;list-style:none;}
     .snl a{font-size:13px;color:var(--t2);text-decoration:none;transition:color .15s;}
-    .snl a:hover,.snl a.nav-active{color:var(--t1);}
+    .snl a:hover{color:var(--t1);}
+    .snl a.nav-active{color:var(--t1);font-weight:500;border-bottom:2px solid var(--acc);padding-bottom:1px;}
     .sncta{font-size:13px;padding:8px 18px;background:var(--acc);color:#fff;border:none;border-radius:var(--r1);cursor:pointer;text-decoration:none;font-weight:500;}
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;border:none;background:transparent;}
     .hamburger span{display:block;width:22px;height:2px;background:var(--t2);border-radius:2px;transition:all .2s;}
@@ -55,7 +56,6 @@
     .company-card{border-radius:var(--r2);padding:32px 28px;}
     .company-card.dominion{background:var(--bg3);border:0.5px solid rgba(232,119,34,0.3);}
     .company-card.merlyn{background:var(--bg3);border:0.5px solid rgba(29,158,117,0.3);}
-    .company-logo{margin-bottom:20px;}
     .company-label{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;}
     .company-label.orange{color:var(--acc);}
     .company-label.green{color:var(--green);}
@@ -125,8 +125,8 @@
     .sft{border-top:0.5px solid var(--bdr);padding:28px 0;}
     .sft .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
     .sfl{font-size:13px;color:var(--t3);}
-    .sfls{display:flex;gap:16px;list-style:none;}
-    .sfls a{font-size:12px;color:var(--t3);text-decoration:none;}
+    .sfls{display:flex;flex-wrap:wrap;gap:8px 16px;list-style:none;}
+    .sfls a{font-size:12px;color:var(--t3);text-decoration:none;white-space:nowrap;}
     .sfls a:hover{color:var(--t2);}
 
     @media(max-width:720px){
@@ -135,7 +135,8 @@
       .snl.open{display:block;}
       .snl li{display:block;height:48px;overflow:hidden;border-top:0.5px solid var(--bdr);}
       .snl a{display:block;height:48px;line-height:48px;padding:0 24px;font-size:14px;}
-      .sncta{font-size:12px;padding:6px 12px;}
+      .sncta{font-size:12px;padding:6px 12px;margin-left:auto;margin-right:12px;}
+      .sn .inner{justify-content:flex-start;}
       .nav-full{display:none;}
       .nav-short{display:inline;}
       .hero h1{font-size:32px;}
@@ -160,6 +161,7 @@
       <li><a href="platform.html">Platform</a></li>
       <li><a href="compute.html">Compute</a></li>
       <li><a href="campus.html">Campus Strategy</a></li>
+      <li><a href="index.html#team">Team</a></li>
       <li><a href="partnership.html" class="nav-active">Partnership</a></li>
     </ul>
     <a href="contact.html" class="sncta"><span class="nav-full">Get in touch ↗</span><span class="nav-short">Contact</span></a>
@@ -199,11 +201,6 @@
     <div class="company-grid">
 
       <div class="company-card dominion">
-        <div class="company-logo">
-          <svg width="140" height="32" viewBox="0 0 140 32" xmlns="http://www.w3.org/2000/svg">
-            <text x="0" y="22" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="13" font-weight="700" letter-spacing="1.5" fill="#F5F4EF">DOMINION <tspan fill="#E87722">HYPERSCALE</tspan></text>
-          </svg>
-        </div>
         <div class="company-label orange">Infrastructure developer &amp; operator</div>
         <div class="company-title">Builds and operates the AI data centers.</div>
         <div class="company-body">
@@ -219,11 +216,6 @@
       </div>
 
       <div class="company-card merlyn">
-        <div class="company-logo">
-          <svg width="140" height="32" viewBox="0 0 140 32" xmlns="http://www.w3.org/2000/svg">
-            <text x="0" y="22" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="18" font-weight="500" letter-spacing="-0.3" fill="#1C1C1A">merlyn <tspan font-size="12" font-weight="400" letter-spacing="0.5" fill="#6B6A65" dy="4">ai labs</tspan></text>
-          </svg>
-        </div>
         <div class="company-label green">AI services company &amp; anchor tenant</div>
         <div class="company-title">Delivers AI services to regional employers.</div>
         <div class="company-body">
@@ -252,7 +244,7 @@
       <div class="line-col dominion">
         <h3 class="orange">Dominion owns and operates</h3>
         <div class="line-item"><div class="line-dot orange"></div><div class="line-text"><strong>The physical facility</strong> — land, building, power infrastructure, cooling, networking</div></div>
-        <div class="line-item"><div class="line-dot orange"></div><div class="line-text"><strong>The compute cluster</strong> — NVIDIA and AMD GPU infrastructure, storage, Kubernetes control plane</div></div>
+        <div class="line-item"><div class="line-dot orange"></div><div class="line-text"><strong>The compute cluster</strong> — NVIDIA GPU infrastructure, storage, Kubernetes control plane</div></div>
         <div class="line-item"><div class="line-dot orange"></div><div class="line-text"><strong>The enterprise compute contracts</strong> — inference cloud, reserved clusters, dedicated infrastructure tiers</div></div>
         <div class="line-item"><div class="line-dot orange"></div><div class="line-text"><strong>The fiber hub</strong> — regional interconnection point, USDA ReConnect and NTIA BEAD eligible</div></div>
         <div class="line-item"><div class="line-dot orange"></div><div class="line-text"><strong>The campus operator relationships</strong> — Merlyn leases space and compute from Dominion</div></div>
@@ -338,7 +330,7 @@
         </div>
         <div class="flow-dominion">
           <div style="font-size:12px;color:var(--acc);font-weight:500;margin-bottom:6px;">Enterprise direct pipeline</div>
-          <div style="font-size:13px;color:var(--t2);line-height:1.55;">Dedicated infrastructure at $18M/MW/yr. Reserved clusters at $9M/MW/yr equivalent. These contracts trigger the next phase build — not Merlyn's volume, the enterprise accounts.</div>
+          <div style="font-size:13px;color:var(--t2);line-height:1.55;">Dedicated infrastructure contracts and reserved cluster commitments. These contracts trigger the next phase build — not Merlyn's volume, the enterprise accounts.</div>
         </div>
       </div>
 
@@ -373,7 +365,7 @@
         <div class="adv-eyebrow orange">For Dominion</div>
         <div class="adv-title">A credible operating partner that opens enterprise doors.</div>
         <div class="adv-body">
-          <p>Todd makes direct enterprise sales calls. But a new data center company in a secondary market asking a regional hospital to sign a $9M/yr compute contract is a hard sell without reference clients. Merlyn's existing relationships with regional employers — and the live workloads already running on Dominion infrastructure — give Todd something to point to.</p>
+          <p>Todd makes direct enterprise sales calls. But a new data center company in a secondary market asking a regional hospital to sign a $2M/yr compute contract is a hard sell without reference clients. Merlyn's existing relationships with regional employers — and the live workloads already running on Dominion infrastructure — give Todd something to point to.</p>
           <p>Merlyn converts the campus from a construction project into an operating facility before the first enterprise contract is signed.</p>
         </div>
       </div>
@@ -413,10 +405,11 @@
   <div class="inner">
     <div class="sfl">© 2025 Dominion Hyperscale · Evansville, Indiana</div>
     <ul class="sfls">
-      <li><a href="index.html">Dominion Home</a></li>
+      <li><a href="markets.html">Markets</a></li>
+      <li><a href="platform.html">Platform</a></li>
       <li><a href="compute.html">Compute</a></li>
-      <li><a href="campus.html">Campus Strategy</a></li>
-      <li><a href="https://walkerwest.github.io/merlyn" target="_blank">Merlyn AI Labs ↗</a></li>
+      <li><a href="campus.html">Campus</a></li>
+      <li><a href="partnership.html">Partnership</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>

@@ -19,7 +19,8 @@
     .logo-text em{font-style:normal;color:var(--acc);letter-spacing:0.5px;}
     .snl{display:flex;gap:22px;list-style:none;}
     .snl a{font-size:13px;color:var(--t2);text-decoration:none;transition:color .15s;}
-    .snl a:hover,.snl a.nav-active{color:var(--t1);}
+    .snl a:hover{color:var(--t1);}
+    .snl a.nav-active{color:var(--t1);font-weight:500;border-bottom:2px solid var(--acc);padding-bottom:1px;}
     .sncta{font-size:13px;padding:8px 18px;background:var(--acc);color:#fff;border:none;border-radius:var(--r1);cursor:pointer;text-decoration:none;font-weight:500;}
     .nav-short{display:none;}
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;border:none;background:transparent;}
@@ -58,8 +59,8 @@
     .sft{border-top:0.5px solid var(--bdr);padding:28px 0;}
     .sft .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
     .sfl{font-size:13px;color:var(--t3);}
-    .sfls{display:flex;gap:16px;list-style:none;}
-    .sfls a{font-size:12px;color:var(--t3);text-decoration:none;}
+    .sfls{display:flex;flex-wrap:wrap;gap:8px 16px;list-style:none;}
+    .sfls a{font-size:12px;color:var(--t3);text-decoration:none;white-space:nowrap;}
     .sfls a:hover{color:var(--t2);}
     @media(max-width:720px){
       .hamburger{display:flex;}
@@ -67,7 +68,8 @@
       .snl.open{display:block;}
       .snl li{display:block;height:48px;overflow:hidden;border-top:0.5px solid var(--bdr);}
       .snl a{display:block;height:48px;line-height:48px;padding:0 24px;font-size:14px;}
-      .sncta{font-size:12px;padding:6px 12px;}
+      .sncta{font-size:12px;padding:6px 12px;margin-left:auto;margin-right:12px;}
+      .sn .inner{justify-content:flex-start;}
       .nav-full{display:none;}
       .nav-short{display:inline;}
       .hero h1{font-size:32px;}
@@ -109,24 +111,25 @@
 <section class="sec" id="hardware">
   <div class="inner">
     <p class="sec-eyebrow">Hardware</p>
-    <h2>NVIDIA + AMD.<br>Both in the same cluster.</h2>
-    <p class="sec-sub">NVIDIA Blackwell for large-scale training and enterprise inference. AMD MI300X for cost-optimized workloads and ROCm-native models. One cluster, two hardware tiers, scheduled by workload type.</p>
+    <h2>All NVIDIA.<br>One stack, no migration overhead.</h2>
+    <p class="sec-sub">NVIDIA H200 for large-scale training and enterprise workloads in Phase 1a — proven hardware, predictable supply, mature support. Blackwell B200/B300 capacity is added in Phase 1b expansion, with existing H200 racks continuing to serve through their useful life. NVIDIA L40S for dedicated inference throughout. One vendor, one driver model, one toolchain — your CUDA-fluent ML team works the way they already know.</p>
     <div class="hw-grid">
       <div class="hw-card">
-        <h3>NVIDIA — Large-scale training + inference</h3>
-        <div class="hw-row"><span class="hw-label">GPU hardware</span><span class="hw-val">Blackwell B200 / H100</span></div>
+        <h3>NVIDIA H200 — Large-scale training</h3>
+        <div class="hw-row"><span class="hw-label">GPU hardware (Phase 1a)</span><span class="hw-val">H200</span></div>
+        <div class="hw-row"><span class="hw-label">Upgrade path</span><span class="hw-val">Blackwell B200/B300 in Phase 1b+</span></div>
         <div class="hw-row"><span class="hw-label">Intra-rack interconnect</span><span class="hw-val">NVLink</span></div>
-        <div class="hw-row"><span class="hw-label">Network fabric (Phase 3)</span><span class="hw-val">InfiniBand</span></div>
+        <div class="hw-row"><span class="hw-label">Network fabric (Phase 2)</span><span class="hw-val">InfiniBand</span></div>
         <div class="hw-row"><span class="hw-label">Scheduling</span><span class="hw-val">NVIDIA GPU Operator + Volcano</span></div>
         <div class="hw-row"><span class="hw-label">MIG partitioning</span><span class="hw-val">Available — smaller workloads</span></div>
       </div>
       <div class="hw-card">
-        <h3>AMD MI300X — Cost-optimized inference</h3>
-        <div class="hw-row"><span class="hw-label">GPU hardware</span><span class="hw-val">AMD MI300X</span></div>
-        <div class="hw-row"><span class="hw-label">Software stack</span><span class="hw-val">NixOS + ROCm</span></div>
+        <h3>NVIDIA L40S — Dedicated inference</h3>
+        <div class="hw-row"><span class="hw-label">GPU hardware</span><span class="hw-val">NVIDIA L40S</span></div>
+        <div class="hw-row"><span class="hw-label">Optimized for</span><span class="hw-val">Tier 1 Inference Cloud</span></div>
+        <div class="hw-row"><span class="hw-label">Software stack</span><span class="hw-val">NVIDIA TensorRT-LLM</span></div>
         <div class="hw-row"><span class="hw-label">Network fabric</span><span class="hw-val">100GbE east-west</span></div>
-        <div class="hw-row"><span class="hw-label">Scheduling</span><span class="hw-val">AMD ROCm device plugin</span></div>
-        <div class="hw-row"><span class="hw-label">ROCm migration</span><span class="hw-val">Available as L2 service</span></div>
+        <div class="hw-row"><span class="hw-label">Scheduling</span><span class="hw-val">NVIDIA GPU Operator</span></div>
       </div>
       <div class="hw-card">
         <h3>Storage — Three-tier architecture</h3>
@@ -141,7 +144,7 @@
         <div class="hw-row"><span class="hw-label">Dominion cost</span><span class="hw-val acc">$0.02 / kWh</span></div>
         <div class="hw-row"><span class="hw-label">Cloud equivalent</span><span class="hw-val">$0.08–0.12 / kWh</span></div>
         <div class="hw-row"><span class="hw-label">Phase 1 capacity</span><span class="hw-val">6 MW</span></div>
-        <div class="hw-row"><span class="hw-label">Full build capacity</span><span class="hw-val">48 MW</span></div>
+        <div class="hw-row"><span class="hw-label">Full build capacity</span><span class="hw-val">25 MW</span></div>
       </div>
     </div>
   </div>
@@ -155,12 +158,12 @@
     <div class="hw-grid">
       <div class="hw-card">
         <h3>What we build to</h3>
-        <div class="hw-row"><span class="hw-label">GPU infrastructure</span><span class="hw-val">NVIDIA + AMD — both in cluster</span></div>
+        <div class="hw-row"><span class="hw-label">GPU infrastructure</span><span class="hw-val">NVIDIA H200 + Blackwell (1b+) + L40S</span></div>
         <div class="hw-row"><span class="hw-label">Power</span><span class="hw-val">On-site natural gas generation</span></div>
         <div class="hw-row"><span class="hw-label">Network</span><span class="hw-val">100GbE east-west · InfiniBand at scale</span></div>
         <div class="hw-row"><span class="hw-label">Storage</span><span class="hw-val">Three-tier: NVMe · SSD · Object</span></div>
         <div class="hw-row"><span class="hw-label">Control plane</span><span class="hw-val">Managed Kubernetes · multi-tenant</span></div>
-        <div class="hw-row"><span class="hw-label">Uptime commitment</span><span class="hw-val">99.9% SLA</span></div>
+        <div class="hw-row"><span class="hw-label">Uptime commitment</span><span class="hw-val">99.999% SLA</span></div>
       </div>
       <div class="hw-card">
         <h3>What scales with the network</h3>
@@ -187,20 +190,21 @@
         <li><div class="pli-dot"></div><div><div class="pli-title">Private container registry</div><div class="pli-body">Client-specific private registry. Model containers never leave the Dominion network boundary. TLS 1.3 in transit, AES-256 at rest.</div></div></li>
         <li><div class="pli-dot"></div><div><div class="pli-title">Prometheus + Grafana monitoring</div><div class="pli-body">GPU utilization, memory pressure, job completion, and throughput metrics visible to clients via a read-only Grafana dashboard. Alerting included at all tiers.</div></div></li>
         <li><div class="pli-dot"></div><div><div class="pli-title">HIPAA-compliant namespace</div><div class="pli-body">Enhanced audit logging, dedicated network segment, and BAA available for healthcare clients. Available at Inference Cloud Growth tier and above.</div></div></li>
+        <li><div class="pli-dot"></div><div><div class="pli-title">MLOps Suite (T3 add-on)</div><div class="pli-body">Customers with internal data science teams can add the full MLOps Suite on top of the platform layer: MLflow for experiment tracking and model registry, Prefect for pipeline orchestration, Feast for the feature store, BentoML for model serving, and Evidently for drift monitoring. T1 and T2 customers get the platform layer alone; T3 customers get the platform layer plus this development environment.</div></div></li>
       </ul>
       <div style="background:var(--bg3);border:0.5px solid var(--bdr);border-radius:var(--r2);padding:28px 24px;">
-        <div style="font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:20px;">Phase 3 campus — full spec</div>
+        <div style="font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:20px;">Phase 2 campus — full spec</div>
         <div style="display:flex;flex-direction:column;gap:12px;">
           <div style="display:flex;justify-content:space-between;padding-bottom:10px;border-bottom:0.5px solid var(--bdr);"><span style="font-size:13px;color:var(--t2);">NVIDIA Blackwell NVL72</span><span style="font-size:13px;font-weight:600;color:var(--t1);">72 GPUs / rack</span></div>
-          <div style="display:flex;justify-content:space-between;padding-bottom:10px;border-bottom:0.5px solid var(--bdr);"><span style="font-size:13px;color:var(--t2);">AMD MI300X nodes</span><span style="font-size:13px;font-weight:600;color:var(--t1);">8× per cluster</span></div>
+          <div style="display:flex;justify-content:space-between;padding-bottom:10px;border-bottom:0.5px solid var(--bdr);"><span style="font-size:13px;color:var(--t2);">NVIDIA L40S inference nodes</span><span style="font-size:13px;font-weight:600;color:var(--t1);">8× per cluster</span></div>
           <div style="display:flex;justify-content:space-between;padding-bottom:10px;border-bottom:0.5px solid var(--bdr);"><span style="font-size:13px;color:var(--t2);">Network fabric</span><span style="font-size:13px;font-weight:600;color:var(--t1);">100GbE + InfiniBand</span></div>
           <div style="display:flex;justify-content:space-between;padding-bottom:10px;border-bottom:0.5px solid var(--bdr);"><span style="font-size:13px;color:var(--t2);">Usable NVMe storage</span><span style="font-size:13px;font-weight:600;color:var(--t1);">100TB+</span></div>
-          <div style="display:flex;justify-content:space-between;padding-bottom:10px;border-bottom:0.5px solid var(--bdr);"><span style="font-size:13px;color:var(--t2);">Power capacity</span><span style="font-size:13px;font-weight:600;color:var(--t1);">48 MW</span></div>
+          <div style="display:flex;justify-content:space-between;padding-bottom:10px;border-bottom:0.5px solid var(--bdr);"><span style="font-size:13px;color:var(--t2);">Power capacity</span><span style="font-size:13px;font-weight:600;color:var(--t1);">25 MW</span></div>
           <div style="display:flex;justify-content:space-between;padding-bottom:10px;border-bottom:0.5px solid var(--bdr);"><span style="font-size:13px;color:var(--t2);">Power cost</span><span style="font-size:13px;font-weight:600;color:var(--acc);">$0.02 / kWh</span></div>
-          <div style="display:flex;justify-content:space-between;"><span style="font-size:13px;color:var(--t2);">Uptime SLA</span><span style="font-size:13px;font-weight:600;color:var(--t1);">99.9%</span></div>
+          <div style="display:flex;justify-content:space-between;"><span style="font-size:13px;color:var(--t2);">Uptime SLA</span><span style="font-size:13px;font-weight:600;color:var(--t1);">99.999%</span></div>
         </div>
         <div style="margin-top:20px;padding:12px 14px;background:rgba(232,119,34,0.06);border:0.5px solid rgba(232,119,34,0.15);border-radius:var(--r1);">
-          <div style="font-size:12px;color:var(--t2);line-height:1.55;">At full 48 MW utilization, Dominion's power cost advantage vs. grid-dependent operators is approximately <strong style="color:var(--t1);">$14M/year</strong> in operating cost savings.</div>
+          <div style="font-size:12px;color:var(--t2);line-height:1.55;">At full 25 MW utilization, Dominion's power cost advantage vs. grid-dependent operators is approximately <strong style="color:var(--t1);">$7M/year</strong> in operating cost savings.</div>
         </div>
         <a href="compute.html" style="display:block;margin-top:16px;font-size:13px;color:var(--acc);text-decoration:none;font-weight:500;">Explore Compute Services pricing →</a>
       </div>
@@ -208,15 +212,53 @@
   </div>
 </section>
 
+<!-- WORKLOAD PATTERNS -->
+<section class="sec-dark" id="workloads">
+  <div class="inner">
+    <p class="sec-eyebrow">What runs on the platform</p>
+    <h2>Two workload patterns.<br>Same underlying platform.</h2>
+    <p class="sec-sub">The platform supports two characteristic workload patterns for regional enterprise customers — dedicated production inference, and full MLOps training pipelines. Same Kubernetes control plane, same monitoring stack, same network fabric; different namespace configurations and resource allocations.</p>
+
+    <div class="hw-grid">
+
+      <div class="hw-card">
+        <h3>Pattern 1 — Dedicated production inference</h3>
+        <div class="hw-row"><span class="hw-label">Example workload</span><span class="hw-val">Radiology assistance model · vendor-provided container</span></div>
+        <div class="hw-row"><span class="hw-label">Namespace type</span><span class="hw-val">HIPAA-compliant · dedicated · isolated</span></div>
+        <div class="hw-row"><span class="hw-label">Compute allocation</span><span class="hw-val">4× L40S dedicated · committed</span></div>
+        <div class="hw-row"><span class="hw-label">Scheduling</span><span class="hw-val">Long-running pod · always-on</span></div>
+        <div class="hw-row"><span class="hw-label">Storage</span><span class="hw-val">Object storage for model artifacts · NVMe for inference cache</span></div>
+        <div class="hw-row"><span class="hw-label">SLA tier</span><span class="hw-val acc">99.999% · production</span></div>
+        <div class="hw-row"><span class="hw-label">Customer tier</span><span class="hw-val">T1 Inference Cloud (committed)</span></div>
+      </div>
+
+      <div class="hw-card">
+        <h3>Pattern 2 — Full MLOps training pipeline</h3>
+        <div class="hw-row"><span class="hw-label">Example workload</span><span class="hw-val">Predictive maintenance · 4-person data science team</span></div>
+        <div class="hw-row"><span class="hw-label">Namespace type</span><span class="hw-val">Multi-user · resource-quota'd · RBAC-scoped</span></div>
+        <div class="hw-row"><span class="hw-label">Compute allocation</span><span class="hw-val">On-demand H200 + L40S for inference</span></div>
+        <div class="hw-row"><span class="hw-label">Scheduling</span><span class="hw-val">Volcano gang scheduling · job queues</span></div>
+        <div class="hw-row"><span class="hw-label">MLOps stack</span><span class="hw-val">MLflow · Prefect · Feast · BentoML · Evidently</span></div>
+        <div class="hw-row"><span class="hw-label">Storage</span><span class="hw-val">Three-tier · training data on object · models on NVMe</span></div>
+        <div class="hw-row"><span class="hw-label">Customer tier</span><span class="hw-val">T3 MLOps Suite + T2 compute</span></div>
+      </div>
+
+    </div>
+
+    <p style="font-size:13px;color:var(--t3);margin-top:24px;text-align:center;">Other patterns are supported — research environments with mixed training and inference, multi-tenant SaaS inference, batch ETL with GPU acceleration. <a href="contact.html" style="color:var(--acc);text-decoration:none;font-weight:500;">Talk to us about your workload pattern.</a></p>
+  </div>
+</section>
+
 <footer class="sft">
   <div class="inner">
     <div class="sfl">© 2025 Dominion Hyperscale · Evansville, Indiana</div>
     <ul class="sfls">
-      <li><a href="index.html">Home</a></li>
       <li><a href="markets.html">Markets</a></li>
+      <li><a href="platform.html">Platform</a></li>
       <li><a href="compute.html">Compute</a></li>
-      <li><a href="campus.html">Campus Strategy</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="campus.html">Campus</a></li>
+      <li><a href="partnership.html">Partnership</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
 </footer>
